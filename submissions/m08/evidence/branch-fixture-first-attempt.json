@@ -1,0 +1,13 @@
+{
+  "test": "M8 isolated correction fixture first attempt",
+  "workflow_id": "bYNqiWj6czYa5W6E",
+  "observed_at": "2026-11-26T12:26:01.408849+00:00",
+  "status": "failed_before_model",
+  "error": "evidence missing section [line 3]",
+  "node": "Iniciar supervision",
+  "duration_ms": 2008,
+  "model_calls": 0,
+  "external_notifications": 0,
+  "cause": "Synthetic evidence object omitted mandatory Evidence contract metadata. Production graph rejected fixture before any model call.",
+  "resolution": "Add required evidence metadata, validate fixture locally before a separately documented retry. Official ten cases unchanged."
+}

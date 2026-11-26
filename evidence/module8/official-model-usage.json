@@ -1,0 +1,445 @@
+{
+  "captured_at": "2026-11-26T12:13:48.829524+00:00",
+  "source": "Native n8n saved execution UI; individual model Output JSON tokenUsage; manually transcribed from observed UI",
+  "workflow_id": "5UvufWORP48dwMtT",
+  "calls": [
+    {
+      "run_id": "525",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 524,
+      "completion_tokens": 15,
+      "total_tokens": 539,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "525",
+      "invocation": 1,
+      "node_role": "Aurora tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 815,
+      "completion_tokens": 16,
+      "total_tokens": 831,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "525",
+      "invocation": 2,
+      "node_role": "Aurora answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1357,
+      "completion_tokens": 39,
+      "total_tokens": 1396,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "525",
+      "invocation": 3,
+      "node_role": "writer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 815,
+      "completion_tokens": 38,
+      "total_tokens": 853,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "525",
+      "invocation": 4,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1569,
+      "completion_tokens": 24,
+      "total_tokens": 1593,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "522",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 524,
+      "completion_tokens": 15,
+      "total_tokens": 539,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "522",
+      "invocation": 1,
+      "node_role": "Aurora tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 815,
+      "completion_tokens": 16,
+      "total_tokens": 831,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "522",
+      "invocation": 2,
+      "node_role": "Aurora answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1357,
+      "completion_tokens": 42,
+      "total_tokens": 1399,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "522",
+      "invocation": 3,
+      "node_role": "writer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 818,
+      "completion_tokens": 41,
+      "total_tokens": 859,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "522",
+      "invocation": 4,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1572,
+      "completion_tokens": 24,
+      "total_tokens": 1596,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "518",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 504,
+      "completion_tokens": 15,
+      "total_tokens": 519,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "518",
+      "invocation": 1,
+      "node_role": "Outer tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 964,
+      "completion_tokens": 27,
+      "total_tokens": 991,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "518",
+      "invocation": 2,
+      "node_role": "Outer answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 4109,
+      "completion_tokens": 36,
+      "total_tokens": 4145,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "518",
+      "invocation": 3,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 948,
+      "completion_tokens": 24,
+      "total_tokens": 972,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "514",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 504,
+      "completion_tokens": 15,
+      "total_tokens": 519,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "514",
+      "invocation": 1,
+      "node_role": "Outer tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 964,
+      "completion_tokens": 23,
+      "total_tokens": 987,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "514",
+      "invocation": 2,
+      "node_role": "Outer answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 4105,
+      "completion_tokens": 69,
+      "total_tokens": 4174,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "514",
+      "invocation": 3,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 2014,
+      "completion_tokens": 24,
+      "total_tokens": 2038,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "510",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 514,
+      "completion_tokens": 15,
+      "total_tokens": 529,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "510",
+      "invocation": 1,
+      "node_role": "Outer tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 974,
+      "completion_tokens": 28,
+      "total_tokens": 1002,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "510",
+      "invocation": 2,
+      "node_role": "Outer answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 4028,
+      "completion_tokens": 99,
+      "total_tokens": 4127,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "510",
+      "invocation": 3,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 2046,
+      "completion_tokens": 24,
+      "total_tokens": 2070,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "506",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 514,
+      "completion_tokens": 15,
+      "total_tokens": 529,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "506",
+      "invocation": 1,
+      "node_role": "Outer tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 974,
+      "completion_tokens": 28,
+      "total_tokens": 1002,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "506",
+      "invocation": 2,
+      "node_role": "Outer answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 4028,
+      "completion_tokens": 99,
+      "total_tokens": 4127,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "506",
+      "invocation": 3,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 2046,
+      "completion_tokens": 24,
+      "total_tokens": 2070,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "503",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 502,
+      "completion_tokens": 15,
+      "total_tokens": 517,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "503",
+      "invocation": 1,
+      "node_role": "recall",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 622,
+      "completion_tokens": 20,
+      "total_tokens": 642,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "503",
+      "invocation": 2,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 993,
+      "completion_tokens": 24,
+      "total_tokens": 1017,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "500",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 502,
+      "completion_tokens": 15,
+      "total_tokens": 517,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "500",
+      "invocation": 1,
+      "node_role": "recall",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 622,
+      "completion_tokens": 20,
+      "total_tokens": 642,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "500",
+      "invocation": 2,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 993,
+      "completion_tokens": 24,
+      "total_tokens": 1017,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "497",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 507,
+      "completion_tokens": 15,
+      "total_tokens": 522,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "497",
+      "invocation": 1,
+      "node_role": "Aurora tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 798,
+      "completion_tokens": 16,
+      "total_tokens": 814,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "497",
+      "invocation": 2,
+      "node_role": "Aurora answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1340,
+      "completion_tokens": 38,
+      "total_tokens": 1378,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "497",
+      "invocation": 3,
+      "node_role": "writer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 797,
+      "completion_tokens": 52,
+      "total_tokens": 849,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "497",
+      "invocation": 4,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1566,
+      "completion_tokens": 24,
+      "total_tokens": 1590,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "494",
+      "invocation": 0,
+      "node_role": "router",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 507,
+      "completion_tokens": 15,
+      "total_tokens": 522,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "494",
+      "invocation": 1,
+      "node_role": "Aurora tool",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 798,
+      "completion_tokens": 16,
+      "total_tokens": 814,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "494",
+      "invocation": 2,
+      "node_role": "Aurora answer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1340,
+      "completion_tokens": 38,
+      "total_tokens": 1378,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "494",
+      "invocation": 3,
+      "node_role": "writer",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 797,
+      "completion_tokens": 52,
+      "total_tokens": 849,
+      "cached_tokens": null
+    },
+    {
+      "run_id": "494",
+      "invocation": 4,
+      "node_role": "judge",
+      "model": "gpt-4o-2024-08-06",
+      "prompt_tokens": 1566,
+      "completion_tokens": 24,
+      "total_tokens": 1590,
+      "cached_tokens": null
+    }
+  ],
+  "scope": "All model invocations of the ten official synthetic text runs, including both agent iterations. No delivery, transcription or TTS.",
+  "pricing_basis": "OpenAI public retail GPT-4o rates, input 2.50 USD/M and output 10 USD/M. Conservative no-cache estimate because cached-token breakdown not captured for every invocation. Not actual n8n Gateway debit.",
+  "actual_gateway_cost": null,
+  "total_calls": 42,
+  "total_tokens": 54895,
+  "estimated_no_cache_retail_usd": 0.14656,
+  "per_execution_tokens": {
+    "525": 5212,
+    "522": 5224,
+    "518": 6627,
+    "514": 7718,
+    "510": 7728,
+    "506": 7728,
+    "503": 2176,
+    "500": 2176,
+    "497": 5153,
+    "494": 5153
+  }
+}

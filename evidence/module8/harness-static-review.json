@@ -1,0 +1,20 @@
+{
+  "scope": "Static independent review of prepared harness only; no runtime completion asserted",
+  "case_definition_sha256": "cfa18e852ee8ac67dc0416167734954150c519839929cfcac5b3f253da25fd47",
+  "harness_sha256": "4419ea5bad9fd9eaf15c1b3f94f80b1f8771f5f162470a640f90f99b9faeea95",
+  "checks": {
+    "ten_inputs": true,
+    "ten_isolated_request_and_session_ids": true,
+    "five_matched_AB_queries_and_domains": true,
+    "chat_dry_run_only": true,
+    "expected_answers_excluded": true,
+    "each_item_execution": true
+  },
+  "runtime_checks_remaining": [
+    "Confirm memory seed read-back in each M8-02 run",
+    "Retain all ten first-run outcomes including failures",
+    "Capture all nested model calls, actual evidence and final answer per run",
+    "Score independently and verify ten unique observed run IDs",
+    "Confirm no outbound delivery occurred"
+  ]
+}

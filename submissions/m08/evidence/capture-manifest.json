@@ -1,0 +1,62 @@
+[
+  {
+    "category": "manager",
+    "file": "evidence/module8/screenshots/manager-canvas.png",
+    "title": "Manager final supervisado",
+    "caption": "Vista integral auténtica: tres etapas de juicio, dos correcciones máximas y salida humana con Slack y Wait. Los detalles de rutas se documentan por separado."
+  },
+  {
+    "category": "supervisor",
+    "file": "evidence/module8/screenshots/supervisor-canvas.png",
+    "title": "Supervisor factual nativo",
+    "caption": "Modelo y parser estructurado conectados al juez, con validación previa y posterior."
+  },
+  {
+    "category": "parser",
+    "file": "evidence/module8/screenshots/parser-schema.png",
+    "title": "Contrato JSON estricto",
+    "caption": "Dos propiedades obligatorias, entero de 1 a 5 y enum de tres veredictos; additionalProperties false y Auto-Fix desactivado."
+  },
+  {
+    "category": "switch",
+    "file": "evidence/module8/screenshots/switch-routes.png",
+    "title": "Switch con tres rutas",
+    "caption": "APROBADO selecciona salida 0; CORREGIR salida 1; cualquier otra ruta selecciona escalamiento en salida 2."
+  },
+  {
+    "category": "correction",
+    "file": "evidence/module8/screenshots/correction-runtime.png",
+    "title": "Corrección real y nueva evaluación",
+    "caption": "Fixture aislado: juez 3/CORREGIR, reescritura real y juez 5/APROBADO. No forma parte de las diez corridas oficiales."
+  },
+  {
+    "category": "escalation",
+    "file": "evidence/module8/screenshots/escalation-notification.png",
+    "title": "Escalamiento y aviso mínimo",
+    "caption": "Fixture aislado con juez real 1/ESCALAR y notificación Slack al revisor. El aviso no contiene consulta ni candidato."
+  },
+  {
+    "category": "escalation",
+    "file": "evidence/module8/screenshots/escalation-no-delivery.png",
+    "title": "Wait sin aprobación automática",
+    "caption": "Tras la pausa de un minuto de la prueba, conserva needs_human/not_sent. El Wait de producción está configurado a 24 horas."
+  },
+  {
+    "category": "guards",
+    "file": "evidence/module8/screenshots/guard-runtime.png",
+    "title": "Guardas con decisiones inyectadas",
+    "caption": "Ensayo explícito sin modelos: agotamiento de dos correcciones y rechazo de estructura inválida. No son veredictos generados por un modelo."
+  },
+  {
+    "category": "usage",
+    "file": "evidence/module8/screenshots/official-execution-usage.png",
+    "title": "Uso real observado en n8n",
+    "caption": "Captura de ejemplo de la ejecución 494 y sus llamadas. La tabla completa transcrita en official-model-usage.json reúne las 42 llamadas de las diez corridas."
+  },
+  {
+    "category": "gmail",
+    "file": "evidence/module8/screenshots/gmail-regression.png",
+    "title": "Regresión Gmail de dos mensajes",
+    "caption": "Dos borradores de respuesta en hilos distintos, lectura posterior de Gmail y cero envíos de correo. Replay posterior conservó ambos IDs."
+  }
+]

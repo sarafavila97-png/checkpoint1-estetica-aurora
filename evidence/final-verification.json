@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-26",
+  "tests": {
+    "passed": 101,
+    "command": "python3 -m unittest discover -s tests -v"
+  },
+  "hosted_snapshot_parity": {
+    "modules": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "passed": true
+  },
+  "m8_code_nodes_compile": true,
+  "secret_pattern_scan": {
+    "text_files": 285,
+    "findings": 0,
+    "limitation": "pattern scan, not exhaustive secret detection"
+  },
+  "review": {
+    "scope": "local read-only logic, tests, hashes and claims",
+    "important_findings": 0,
+    "independent_runtime_replay": false
+  },
+  "pdf_visual_review": {
+    "m8_pages": 15,
+    "m8_all_pages": true,
+    "m6_pages": 15,
+    "m6_review": "root reviewed changed text and added capture; remaining capture pages unchanged from earlier review"
+  },
+  "limits": [
+    "Telegram genuine incoming voice and reply unobserved; login pending",
+    "M5 literal native Vector Store Retrieve Tool criterion unresolved; blind score 2/5",
+    "Actual Gateway charge unknown; M8 retail no-cache estimate only",
+    "Full production 24-hour Wait not observed; isolated one-minute Wait tested",
+    "Historical synthetic audio versions/provider retention not erased",
+    "Sequential receipt deduplication, not atomic concurrent guarantee"
+  ]
+}

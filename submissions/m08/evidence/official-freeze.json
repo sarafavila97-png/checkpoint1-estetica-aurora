@@ -1,0 +1,49 @@
+{
+  "frozen_at_utc": "2026-11-26T11:56:14.754208+00:00",
+  "official_runs_started": false,
+  "protocol": "Exactly 5 matched pairs, alternating A/B within case, one original run each; no replacement or best-of. Expected claims excluded from model inputs.",
+  "evaluation_workflow_id": "5UvufWORP48dwMtT",
+  "harness_workflow_id": "Edeg56d8BVv6VNdS",
+  "verified_harness_nodes": 7,
+  "source_pdf_sha256": "6c96c3df7a36e4534bdb413a217629538cf02be62231f18c2358c09453c2dee4",
+  "files": [
+    {
+      "file": "evaluation/module8-cases.json",
+      "sha256": "cfa18e852ee8ac67dc0416167734954150c519839929cfcac5b3f253da25fd47"
+    },
+    {
+      "file": "scripts/build_module8_evaluation.py",
+      "sha256": "ce051b9c45f71b6ad120380f4486d390822d7ede4f003c40dde3ab974e95b167"
+    },
+    {
+      "file": "scripts/build_module8_harness.py",
+      "sha256": "119c37f3b629aea52a907abb4c1d289ad2ad667ea3d13e0b13522dba91d9eec6"
+    },
+    {
+      "file": "prompts/judge.txt",
+      "sha256": "29e07e1a672dcbcfc0788d854cbb0f46a6bb8bdbeffbdb7cf8e08842eb9d18ea"
+    },
+    {
+      "file": "schemas/judge.schema.json",
+      "sha256": "d31a81544e497a2d27db00d4cf4047dbf80ed02dc64feed564a4693c3efc3051"
+    },
+    {
+      "file": "src/quality.js",
+      "sha256": "53d23260b1ce9bb59fc1eb1f07d62477a885722dc2ffe386288fedcf9d5a8366"
+    },
+    {
+      "file": "src/supervision.js",
+      "sha256": "abdf7c62b9c2cdd158db7612ec64767605b3d2d81629850bfbb2c3915a9cce51"
+    },
+    {
+      "file": "private/m8-evaluation-hosted.json",
+      "sha256": "817a87c8a08c705b37e0770a964a7b50eab457bb4e13a660f108c7dc7546b6fb"
+    },
+    {
+      "file": "private/m8-harness-hosted.json",
+      "sha256": "09b7ba8913b8a38848e78b70166afea0ad2a6ded1e2c420340c246057fb76954"
+    }
+  ],
+  "retrieval_note": "Index/source version unchanged. Actual per-run evidence and context will be retained and compared; differences will be disclosed rather than silently rerun.",
+  "cost_note": "Actual per-call model usage required. Retail reference no-cache estimates are distinct from unverified n8n Gateway charges; non-model services not billed as zero."
+}

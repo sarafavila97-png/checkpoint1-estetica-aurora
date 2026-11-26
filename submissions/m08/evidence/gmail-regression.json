@@ -1,0 +1,35 @@
+{
+  "workflow_id": "WwzL3pyJ75s4o9M0",
+  "adapter_id": "HN9WViRuCuat7IGF",
+  "manager_id": "CDohMiV8NsPKF2ua",
+  "observed_at": "2026-11-26T12:41:25.003065+00:00",
+  "status": "PASS",
+  "elapsed_ms": 32760,
+  "source": "Native final result: real Gmail draft readback verified recipient/thread and completed status per message",
+  "results": [
+    {
+      "case_id": "A",
+      "request_id": "gmail:m8-batch-v1-A",
+      "recipient": "aurora-m4-batch-a@example.com",
+      "thread_id": "1a217dedb105972b",
+      "draft_id": "r5809305014190043672",
+      "seed_draft_id": "r-2269183819455833146",
+      "body": "El manicure básico en Estética Aurora, un negocio ficticio de práctica, cuesta 180 MXN e incluye esmalte tradicional.",
+      "status": "completed"
+    },
+    {
+      "case_id": "B",
+      "request_id": "gmail:m8-batch-v1-B",
+      "recipient": "aurora-m4-batch-b@example.com",
+      "thread_id": "1a217deda65c4f89",
+      "draft_id": "r-2622806908837163668",
+      "seed_draft_id": "r-8607735351927930838",
+      "body": "El manicure básico en Estética Aurora, un negocio ficticio de práctica, tiene una duración de 40 minutos.",
+      "status": "completed"
+    }
+  ],
+  "drafts_created": 4,
+  "external_emails_sent": 0,
+  "cost": null,
+  "limits": "Synthetic incoming objects with newly created real Gmail seed threads; not live inbox polling. Draft adapter calls quality manager in dry_run and owns draft creation."
+}

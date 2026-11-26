@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["exactitud_factual", "estado_veredicto"],
+  "properties": {
+    "exactitud_factual": {"type": "integer", "minimum": 1, "maximum": 5},
+    "estado_veredicto": {"type": "string", "enum": ["APROBADO", "CORREGIR", "ESCALAR"]}
+  }
+}

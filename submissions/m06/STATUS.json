@@ -2,10 +2,10 @@
   "module": 6,
   "status": "partial_runtime_validation",
   "hosted_exports_verified": 6,
-  "authentic_screenshots": 10,
-  "pdf_pages": 14,
+  "authentic_screenshots": 11,
+  "pdf_pages": 15,
   "real_incoming_voice_test": false,
-  "corrupt_audio_runtime_test": false,
-  "temporary_synthetic_audio_cleanup": "pending",
+  "corrupt_audio_runtime_test": true,
+  "temporary_synthetic_audio_cleanup": "current fixture and known local audio removed; workflow archived; historical retention not erased",
   "cost": null
 }

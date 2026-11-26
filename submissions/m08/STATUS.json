@@ -1,0 +1,27 @@
+{
+  "module": 8,
+  "status": "implemented_and_tested_with_documented_limits",
+  "hosted_exports_verified": 6,
+  "authentic_screenshots": 10,
+  "official_runs": 10,
+  "independent_correct": {
+    "A": 5,
+    "B": 5
+  },
+  "actual_model_calls": 42,
+  "tokens": 54895,
+  "retail_no_cache_estimate_usd": 0.14656,
+  "actual_gateway_cost": null,
+  "real_correction_test": true,
+  "real_escalation_test": true,
+  "escalation_test_wait_seconds": 60,
+  "production_wait_hours": 24,
+  "injected_guard_tests": true,
+  "gmail_two_message_regression": true,
+  "gmail_sequential_replay": true,
+  "real_incoming_telegram_test": false,
+  "active_workflows": false,
+  "pdf_pages": 15,
+  "local_tests_passed": 101,
+  "review": "no important actionable findings; local/read-only review"
+}

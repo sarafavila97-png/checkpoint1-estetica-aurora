@@ -1,0 +1,37 @@
+{
+  "workflow_id": "mo2mNA9CRO6nO5LU",
+  "run_id": "532",
+  "observed_at": "2026-11-26T12:32:06.745792+00:00",
+  "test_type": "Synthetic candidate/evidence injection into real native M8 quality graph, real supervisor and Slack, shortened Wait",
+  "request_id": "chat:m8-branch-escalation-1",
+  "status": "needs_human",
+  "delivery": "not_sent",
+  "elapsed_ms": 65687,
+  "judge": {
+    "exactitud_factual": 1,
+    "estado_veredicto": "ESCALAR"
+  },
+  "correction_attempt": 0,
+  "model_calls": 1,
+  "reviewer_notifications": 1,
+  "slack_result": {
+    "ok": true,
+    "channel": "D0BMV1VK50S",
+    "message_timestamp": "1795696206.413369"
+  },
+  "notification_fields": [
+    "request_id",
+    "domain",
+    "status",
+    "reason",
+    "record_reference"
+  ],
+  "customer_deliveries": 0,
+  "wait_observed": true,
+  "test_wait_seconds": 60,
+  "production_wait_seconds": 86400,
+  "expiry_autoapproved": false,
+  "output": "La consulta requiere revisión humana.",
+  "cost": null,
+  "limits": "Confirms notification and actual timer pause/fail-closed expiry in isolated fixture, not the full 24-hour production wait nor an authenticated human approval path."
+}

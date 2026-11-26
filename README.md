@@ -1,3 +1,19 @@
+# Estética Aurora — entregas M1–M6 y M8
+
+Proyecto académico de Sara Adan. Los checkpoints preservan la evolución del asistente y sus evidencias, con workflows sanitizados y pruebas observadas.
+
+| Módulo | Entrega | Estado y límites |
+| --- | --- | --- |
+| 1 | JSON y validación en raíz | Chat, Sheets y dos correos probados; Forms pendiente. No repetir envíos. |
+| 2 | [Entrega M2](submissions/m02/) | Manager y workers con exportación verificada. |
+| 3 | [Entrega M3](submissions/m03/) | Memoria aislada, resumen y fallos probados. |
+| 4 | [Entrega M4](submissions/m04/) | CRM, borradores Gmail, replay y revisión Slack. |
+| 5 | [Entrega M5](submissions/m05/) | RAG probado; ensayo ciego 2/5. Falta criterio literal de nodo nativo LlamaParse. |
+| 6 | [Entrega M6](submissions/m06/) | Voz sintética y contingencia corrupta probadas; llegada real Telegram pendiente de sesión. |
+| 8 | [Entrega M8](submissions/m08/) | Supervisor, corrección acotada, escalamiento y diez pruebas A/B; límites documentados. |
+
+Todos los workflows finales de M8 permanecen inactivos. Sus seis exports cotejados se encuentran en `workflows/module8/`; `checkpoint8_sara_adan.json` es el manager, que requiere importar y enlazar sus dependencias. Los PDFs y registros de estado no afirman aceptación integral mientras persistan los límites indicados.
+
 # Checkpoint 1 — Estética Aurora
 
 **Alumna: Sara Adan.** Asistente de consultas para una estética ficticia. Este flujo es la base del proyecto y puede ampliarse en los siguientes módulos.

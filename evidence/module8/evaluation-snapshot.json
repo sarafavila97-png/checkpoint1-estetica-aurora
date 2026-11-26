@@ -1,0 +1,8 @@
+{
+  "workflow_id": "5UvufWORP48dwMtT",
+  "nodes": 130,
+  "hosted_export_sha256": "817a87c8a08c705b37e0770a964a7b50eab457bb4e13a660f108c7dc7546b6fb",
+  "parameter_graph_parity": true,
+  "retention_scope": "synthetic text-only evaluation, never audio",
+  "delivery_disabled": true
+}

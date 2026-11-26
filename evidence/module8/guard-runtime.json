@@ -1,0 +1,40 @@
+{
+  "workflow_id": "rOecdQ1PZ7arjqdD",
+  "observed_at": "2026-11-26T12:38:47.738402+00:00",
+  "status": "PASS",
+  "elapsed_ms": 3376,
+  "scope": "Real native M8 state-transition Code and Switch graph with explicitly injected judge outputs and deterministic rewrite fixtures. Not model-generated verdicts or corrections.",
+  "cases": [
+    {
+      "case": "exhaustion",
+      "status": "needs_human",
+      "delivery": "not_sent",
+      "attempt": 2,
+      "history_routes": [
+        "CORREGIR",
+        "CORREGIR",
+        "ESCALAR"
+      ],
+      "reason": "CORRECTION_LIMIT"
+    },
+    {
+      "case": "malformed",
+      "status": "needs_human",
+      "delivery": "not_sent",
+      "attempt": 0,
+      "history_routes": [
+        "ESCALAR"
+      ],
+      "reason": "INVALID_JUDGE_SCHEMA",
+      "injected_judge": {
+        "exactitud_factual": "5",
+        "estado_veredicto": "APROBADO",
+        "extra": "invalid"
+      }
+    }
+  ],
+  "model_calls": 0,
+  "external_notifications": 0,
+  "cost": 0,
+  "cost_scope": "No provider-model invocation in this deterministic graph test; n8n platform cost not measured."
+}

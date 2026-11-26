@@ -1,0 +1,44 @@
+[
+  {
+    "file": "workflows/module8/supervisor.json",
+    "hosted_id": "FZ2XIHqHkNNnaZmm",
+    "nodes": 8,
+    "sha256": "58babbe80c4f54867df890ad776f1fb37385dc7b6e6164174cb44946fcf800d0",
+    "verified": true
+  },
+  {
+    "file": "workflows/module8/aurora_manager.json",
+    "hosted_id": "CDohMiV8NsPKF2ua",
+    "nodes": 92,
+    "sha256": "5b5441ee420fe018cba64ee5085f31510917f1d41ea789e47c872114a3f4a62a",
+    "verified": true
+  },
+  {
+    "file": "workflows/module8/telegram_delivery.json",
+    "hosted_id": "wWoRniAeQWJLTaIE",
+    "nodes": 11,
+    "sha256": "3c3bb10f892652c4f89641f950187a16ac20d12591e89359a867351ef0f74923",
+    "verified": true
+  },
+  {
+    "file": "workflows/module8/gmail_message.json",
+    "hosted_id": "HN9WViRuCuat7IGF",
+    "nodes": 28,
+    "sha256": "2d53adefd18b754f16a97a714a632964a0120759932bc373efe7f87a5e2219d0",
+    "verified": true
+  },
+  {
+    "file": "workflows/module8/gmail_inbox.json",
+    "hosted_id": "RkxDx5IuniDScgZ3",
+    "nodes": 6,
+    "sha256": "43399174d3b8bb05099d652a1b6b528c1145b8b1891be66f33e99704d2dee960",
+    "verified": true
+  },
+  {
+    "file": "workflows/module8/telegram_voice.json",
+    "hosted_id": "FvgWYqbUUnUqt0MY",
+    "nodes": 22,
+    "sha256": "f36a88f832e5f1597fafdb4363ac86b36ae900cb3a6f36ce9abb22ff3c3cf03b",
+    "verified": true
+  }
+]

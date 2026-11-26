@@ -1,0 +1,29 @@
+{
+  "workflow_id": "bYNqiWj6czYa5W6E",
+  "observed_at": "2026-11-26T12:28:35.044637+00:00",
+  "test_type": "Synthetic candidate/evidence injected into actual native M8 quality suffix; real supervisor and correction models; no retrieval, memory writes or external delivery",
+  "attempt": "Corrected fixture retry after contract failure; first failed attempt preserved separately",
+  "status": "success",
+  "elapsed_ms": 5496,
+  "request_id": "chat:m8-branch-correction-1",
+  "history": [
+    {
+      "attempt": 0,
+      "candidate": "El manicure clásico cuesta 180 MXN.",
+      "score": 3,
+      "route": "CORREGIR",
+      "reason": "REVISE_WITH_SAME_EVIDENCE"
+    },
+    {
+      "attempt": 1,
+      "candidate": "El manicure clásico cuesta 180 MXN y dura 40 minutos. El pedicure estético cuesta 250 MXN y dura 50 minutos.",
+      "score": 5,
+      "route": "APROBADO",
+      "reason": "SUPPORTED_ANSWER"
+    }
+  ],
+  "model_calls": 3,
+  "external_deliveries": 0,
+  "cost": null,
+  "limit": "Exercises one correction followed by approval, not two-correction exhaustion. Judge gave5 although rewritten answer omitted fictional-business reminder; do not infer judge perfection."
+}

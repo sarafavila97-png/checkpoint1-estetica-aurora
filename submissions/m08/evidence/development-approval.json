@@ -1,0 +1,31 @@
+{
+  "test": "First live M8 manager development check; not an official A/B run",
+  "workflow_id": "CDohMiV8NsPKF2ua",
+  "source": "Observed transient n8n manual execution UI, not a downloaded raw execution",
+  "query": "Precio manicure",
+  "request_id": "chat:m3-integrated-1",
+  "session_id": "aurora_demo:chat:m3-integrated",
+  "fixture_note": "Inherited manual fixture from earlier manager; existing receipt causes Retornar sin escritura. Official evaluation will use isolated new IDs and seeded contexts.",
+  "status": "success",
+  "output": "El precio del manicure clásico con esmalte tradicional en Estética Aurora es de 180 MXN. Recuerda que todos los datos son ficticios para una práctica académica.",
+  "evidence_source_id": "Aurora/Base/current",
+  "judge_score": 5,
+  "judge_route": "APROBADO",
+  "correction_attempt": 0,
+  "supervisor_duration_ms": 787,
+  "router_duration_ms": 1053,
+  "observed_router_usage": {
+    "model": "gpt-4o-2024-08-06",
+    "prompt_tokens": 489,
+    "completion_tokens": 15,
+    "total_tokens": 504
+  },
+  "all_model_usage_complete": false,
+  "cost": null,
+  "latency_ms": null,
+  "external_delivery_count": 0,
+  "notes": [
+    "Router usage is available in native model output JSON. Nested worker usage is not included in the visible manager token total.",
+    "The UI running-duration label continued increasing after Workflow executed successfully, so it is not treated as execution latency."
+  ]
+}

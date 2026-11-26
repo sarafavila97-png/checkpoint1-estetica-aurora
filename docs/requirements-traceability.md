@@ -83,7 +83,7 @@ Additional literal check: original screenshot names **Vector Store Retrieve Tool
 
 ## Module 6
 
-[Six hosted snapshots](../workflows/module6/) and [parity manifest](../evidence/module6/hosted-export-manifest.json) are committed in d64d019. The [14-page PDF](../submissions/m06/PreEntrega_Modulo6_SaraAdan.pdf) includes ten authentic captures and both exact native agent prompts; all pages received visual review. Synthetic transcription and synthesis ran, but the first combined test exposed a Sheets binding failure. The [repaired text regression](../evidence/module6/text-regression-after-binding-fix.json) then returned 180 MXN and 40 minutes. Incoming Telegram voice, corrupt-audio runtime contingency and final temporary-audio disposal remain unverified. The incoming test requires a signed-in Telegram session. These component observations do not prove the full pipeline.
+[Six hosted snapshots](../workflows/module6/) pass parity verification. The [15-page PDF](../submissions/m06/PreEntrega_Modulo6_SaraAdan.pdf) includes eleven authentic captures and exact native agent prompts. Synthetic transcription/synthesis ran; the original Sheets binding failure is preserved and the repaired text regression returned 180 MXN and 40 minutes. An isolated invalid-audio call now proves Whisper failure reaches the contingency without answer model, TTS or Telegram delivery. The current synthetic fixture and known local generated audio were removed and its workflow archived; historical versions/provider retention were not erased. Incoming Telegram voice still requires the user's signed-in session; component observations do not prove that full pipeline.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
@@ -92,25 +92,25 @@ Additional literal check: original screenshot names **Vector Store Retrieve Tool
 | M6.03 | Agent prompt enforces at most 200 characters without links, bullets or emoji. | partial |
 | M6.04 | Native ElevenLabs output uses configured multilingual model and stability; retired-version substitution is explicitly documented. | partial |
 | M6.05 | Generated binary is mapped to Send Voice or Send Audio on originating messaging channel. | partial |
-| M6.06 | IF/Switch after transcription safely handles corrupt audio or empty transcription. | partial |
+| M6.06 | IF/Switch after transcription safely handles corrupt audio or empty transcription. | evidence available; isolated corrupt-audio runtime and local empty-text check |
 | M6.07 | Successful and failed production executions use Do not save; no audio is persisted in external storage. | partial |
 | M6.08 | Single PDF includes full canvas, Whisper/agent/TTS/contingency settings, retention settings, disposal explanation and exact agent prompt. | evidence available; runtime limits explicit |
 
 ## Module 8
 
-[Supervisor and manager snapshots](../workflows/module8/) exist. The [first live development approval](../evidence/module8/development-approval.json) returned the documented price with judge score 5; it is not an official comparison run. Twelve focused graph/supervisor tests pass, including bounded corrections and malformed-output escalation. Actual correction/escalation branches, final channel wiring, ten official A/B runs, dashboard and PDF remain pending. The [metrics calculator](../scripts/report_metrics.py) and [prepared harness review](../evidence/module8/harness-static-review.json) do not replace runtime evidence.
+[Six final snapshots](../workflows/module8/) pass hosted export parity. The [15-page PDF](../submissions/m08/Checkpoint_Modulo8_Adan_Sara.pdf) includes ten authentic captures, prompt/schema, all ten frozen A/B runs, independent 5/5 scoring in each arm and complete UI-transcribed usage of 42 model calls. Retail no-cache estimate is USD 0.14656; actual Gateway charge is unknown. A real isolated correction and a real escalation with Slack plus one-minute Wait were observed; production Wait remains 24 hours. Injected decisions separately verify malformed JSON and exhaustion. Gmail two-message regression and sequential replay passed; incoming Telegram remains unverified/inactive. Local suite: 101 passing tests. Final reviewer found no important actionable issue in a local/read-only review, not an independent runtime replay.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
 | M8.01 | Prior modules retained and supervisor implemented as sub-workflow. | partial |
-| M8.02 | Structured output schema enforced and exact judge prompt reproduced in PDF. | partial |
-| M8.03 | Switch has APROBADO, CORREGIR and ESCALAR branches; approval requires factual score at least 4. | partial |
-| M8.04 | Correction passes judge feedback to agent and has bounded attempts ending in escalation. | partial |
-| M8.05 | Escalation actually pauses with Wait/Wait for Webhook and notifies human channel. | pending |
-| M8.06 | Malformed judge JSON fails safely rather than breaking routing. | partial |
-| M8.07 | Exactly five runs of architecture A and five of B record actual precision and cost. | pending |
-| M8.08 | Simple dashboard shows mean precision, common error categories, projected cost for 1000 executions and evidence-based recommendation. | pending |
-| M8.09 | One PDF contains supervisor/rubric, ten-run A/B matrix and dashboard/projection. | pending |
+| M8.02 | Structured output schema enforced and exact judge prompt reproduced in PDF. | evidence available |
+| M8.03 | Switch has APROBADO, CORREGIR and ESCALAR branches; approval requires factual score at least 4. | evidence available |
+| M8.04 | Correction passes judge feedback to agent and has bounded attempts ending in escalation. | evidence available |
+| M8.05 | Escalation actually pauses with Wait/Wait for Webhook and notifies human channel. | evidence available |
+| M8.06 | Malformed judge JSON fails safely rather than breaking routing. | evidence available |
+| M8.07 | Exactly five runs of architecture A and five of B record actual precision and cost. | partial: precision and actual token usage observed; retail cost estimated, Gateway charge unknown |
+| M8.08 | Simple dashboard shows mean precision, common error categories, projected cost for 1000 executions and evidence-based recommendation. | evidence available |
+| M8.09 | One PDF contains supervisor/rubric, ten-run A/B matrix and dashboard/projection. | evidence available |
 
 ## Final acceptance procedure
 

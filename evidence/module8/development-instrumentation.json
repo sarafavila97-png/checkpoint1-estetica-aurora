@@ -1,0 +1,16 @@
+{
+  "workflow_id": "5UvufWORP48dwMtT",
+  "stage": "Development before adding final timing node; not official A/B",
+  "status": "success",
+  "query": "Precio manicure",
+  "request_id": "chat:m8-dev-inline-AB",
+  "answer": "El precio del manicure clásico con esmalte tradicional en Estética Aurora es de 180 MXN. Recuerda que todos los datos son ficticios para una práctica académica.",
+  "judge_score": 5,
+  "route": "APROBADO",
+  "correction_attempt": 0,
+  "memory_status": "saved",
+  "visible_total_model_tokens": 5019,
+  "model_usage_scope": "All inline native model nodes; actual prompt/completion fields inspected for router and visible in native model outputs. Official per-call capture still pending.",
+  "cost": null,
+  "external_deliveries": 0
+}

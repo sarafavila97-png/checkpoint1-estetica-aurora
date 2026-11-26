@@ -1,0 +1,22 @@
+{
+  "checked_date": "2026-11-26",
+  "purpose": "Reference estimate only; not an n8n Gateway invoice or measured debit",
+  "currency": "USD",
+  "unit_tokens": 1000000,
+  "model": "gpt-4o-2024-08-06",
+  "standard_input": 2.5,
+  "cached_input": 1.25,
+  "output": 10.0,
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-4o",
+    "https://openai.com/index/api-prompt-caching/"
+  ],
+  "rules": [
+    "Sum every actual model invocation including tools, supervisor and correction calls.",
+    "Use cached discount only when actual cached-token usage is recorded; otherwise label full input rate a no-cache reference estimate.",
+    "Missing invocation usage makes full-run cost unknown; do not substitute zero.",
+    "These retail API rates do not establish n8n Gateway billing rates or account charges.",
+    "Exclude expected answers from runtime requests and score factual correctness independently."
+  ],
+  "formula": "((input_tokens-cached_tokens)*2.5+cached_tokens*1.25+output_tokens*10)/1000000"
+}

@@ -1,0 +1,22 @@
+{
+  "workflow_id": "oc5nPTmrn1z2oKAy",
+  "status": "PASS",
+  "elapsed_ms": 2770,
+  "source": "Native n8n final output inspected through UI",
+  "results": [
+    {
+      "request_id": "gmail:m8-batch-v1-A",
+      "status": "completed",
+      "delivery": "borrador_existente",
+      "draft_id": "r5809305014190043672"
+    },
+    {
+      "request_id": "gmail:m8-batch-v1-B",
+      "status": "completed",
+      "delivery": "borrador_existente",
+      "draft_id": "r-2622806908837163668"
+    }
+  ],
+  "same_draft_ids": true,
+  "limits": "Sequential replay only. No provider call-count telemetry; bypass follows verified receipt branch. Not atomic concurrency proof."
+}

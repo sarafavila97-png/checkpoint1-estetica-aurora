@@ -1,0 +1,18 @@
+{
+  "workflow_id": "tpXWqas4SZ7FQJdI",
+  "source": "Observed n8n native Airtable create result and verification output",
+  "status": "PASS",
+  "records": [
+    {
+      "record_id": "recziSHGW3oUgTIWs",
+      "session_id": "aurora_demo:chat:m8-official-A-M8-02"
+    },
+    {
+      "record_id": "reck0jVAwmyC6Krr2",
+      "session_id": "aurora_demo:chat:m8-official-B-M8-02"
+    }
+  ],
+  "model_calls": 0,
+  "read_back": "Included as mandatory precondition in official harness; pending execution",
+  "do_not_rerun_create": true
+}

@@ -41,9 +41,9 @@ En M6, si el texto no satisface el límite se permite una única compactación a
 
 Las seis exportaciones verificadas fijan `saveDataSuccessExecution=none`, `saveDataErrorExecution=none`, `saveManualExecutions=false` y `saveExecutionProgress=false`; timeout de 180 segundos. No contienen datos fijados mediante pinData. El hijo de transcripción retorna sólo texto y no introduce un nodo Wait ni almacenamiento externo de audio. La entrega termina devolviendo metadatos de estado, identificador de mensaje y cantidad de caracteres, no el binario.
 
-Una transcripción vacía, un error del proveedor o un binario ausente se desvían a contingencia. Los estados de error o revisión del manager no pasan a la entrega normal. Estas decisiones se verifican en la configuración y en pruebas locales; las pruebas reales de audio corrupto y de llegada por Telegram aún deben documentarse.
+Una transcripción vacía, un error del proveedor o un binario ausente se desvían a contingencia. Los estados de error o revisión del manager no pasan a la entrega normal. Estas decisiones se verifican en la configuración y en pruebas locales; la prueba aislada de audio corrupto ya confirmó la contingencia; la llegada genuina por Telegram sigue pendiente.
 
-No se afirma borrado seguro en la infraestructura de Telegram, OpenAI o ElevenLabs. La política comprobada aquí es la configuración de ejecución de n8n y la ausencia de nodos de persistencia de audio en el flujo. Los archivos de audio sintético usados para desarrollo son materiales temporales locales; su eliminación final debe verificarse antes del cierre.
+No se afirma borrado seguro en la infraestructura de Telegram, OpenAI o ElevenLabs. La política comprobada aquí es la configuración de ejecución de n8n y la ausencia de nodos de persistencia de audio en el flujo. Se retiró el audio sintético de la definición alojada actual, se archivó el fixture y se eliminaron WAV/AIFF locales generados. El historial de versiones podría conservar bytes sintéticos anteriores; no se afirma purga completa.
 
 ## 4. Pruebas y resultados observados
 
@@ -97,4 +97,4 @@ Las expresiones siguientes son el texto exacto configurado en cada agente. La pa
 - [Inventario de dependencias Telegram](../../evidence/module6/telegram-dependency-inventory.json).
 - [Verificador de exportaciones](../../scripts/verify_module6_exports.py).
 
-Las páginas siguientes incorporan diez capturas auténticas de configuración. Para cerrar la validación quedan el recorrido entrante real por Telegram, la contingencia con audio inválido y la verificación final del descarte de los temporales. Se incluye la vista completa del manager delegado. Este informe no oculta esos pendientes.
+Las páginas siguientes incorporan once capturas auténticas de configuración y ejecución. La prueba corrupta invocó Whisper una vez (1.362 s), obtuvo Bad request y pasó por el IF a needs_human/TRANSCRIPTION_FAILED con texto de contingencia. No hubo llamadas de respuesta, TTS ni mensajes Telegram. Véanse corrupt-audio-runtime.json y temporary-audio-cleanup.json. Queda pendiente el recorrido entrante genuino por Telegram; la contingencia preparada no demuestra su entrega al chat.

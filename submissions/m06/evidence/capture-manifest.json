@@ -58,5 +58,11 @@
     "file": "evidence/module6/screenshots/manager-canvas.png",
     "title": "Manager evolucionado del módulo 6",
     "caption": "Vista completa del manager delegado de 48 nodos. Integra enrutamiento, memoria y trabajadores; esta captura documenta configuración, no demuestra el recorrido entrante de voz."
+  },
+  {
+    "category": "guard",
+    "file": "evidence/module6/screenshots/corrupt-audio-contingency.png",
+    "title": "Contingencia real con audio inválido",
+    "caption": "Prueba aislada: Whisper rechazó bytes inválidos y el IF devolvió el texto de contingencia. Sin agente de respuesta, TTS ni envío Telegram. No es llegada genuina por chat."
   }
 ]

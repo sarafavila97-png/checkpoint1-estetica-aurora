@@ -1,0 +1,70 @@
+{
+  "scope": "Independent arithmetic and ID coverage check of UI-transcribed usage; does not independently re-observe browser logs",
+  "source_sha256": "a4206fc46cc174f77f20636b84ab4a400d3f8e4e933fd92afcbd14e23888ac24",
+  "per_run": {
+    "494": {
+      "calls": 5,
+      "tokens": 5153,
+      "estimated_no_cache_retail_usd": "0.0139700"
+    },
+    "497": {
+      "calls": 5,
+      "tokens": 5153,
+      "estimated_no_cache_retail_usd": "0.0139700"
+    },
+    "500": {
+      "calls": 3,
+      "tokens": 2176,
+      "estimated_no_cache_retail_usd": "0.0058825"
+    },
+    "503": {
+      "calls": 3,
+      "tokens": 2176,
+      "estimated_no_cache_retail_usd": "0.0058825"
+    },
+    "506": {
+      "calls": 4,
+      "tokens": 7728,
+      "estimated_no_cache_retail_usd": "0.020565"
+    },
+    "510": {
+      "calls": 4,
+      "tokens": 7728,
+      "estimated_no_cache_retail_usd": "0.020565"
+    },
+    "514": {
+      "calls": 4,
+      "tokens": 7718,
+      "estimated_no_cache_retail_usd": "0.0202775"
+    },
+    "518": {
+      "calls": 4,
+      "tokens": 6627,
+      "estimated_no_cache_retail_usd": "0.0173325"
+    },
+    "522": {
+      "calls": 5,
+      "tokens": 5224,
+      "estimated_no_cache_retail_usd": "0.0140950"
+    },
+    "525": {
+      "calls": 5,
+      "tokens": 5212,
+      "estimated_no_cache_retail_usd": "0.0140200"
+    }
+  },
+  "per_arm_estimated_retail_usd": {
+    "A": "0.0747900",
+    "B": "0.0717700"
+  },
+  "per_arm_estimated_retail_usd_1000": {
+    "A": "14.9580000",
+    "B": "14.3540000"
+  },
+  "limits": [
+    "Public retail no-cache model estimate only; actual n8n Gateway debit unknown.",
+    "No correction occurred; cost difference does not measure correction overhead.",
+    "M8-04 returned different evidence, reducing B judge input; differences cannot be attributed solely to architecture.",
+    "Non-model service cost and audio channels excluded."
+  ]
+}

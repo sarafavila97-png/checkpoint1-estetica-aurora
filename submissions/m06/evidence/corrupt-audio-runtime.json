@@ -1,0 +1,21 @@
+{
+  "workflow_id": "Vt71VSoOACN5owgs",
+  "observed_at": "2026-11-26T12:34:17.704611+00:00",
+  "test_type": "Invalid synthetic WAV bytes supplied to original native Whisper and immediate nonempty-text IF; no incoming Telegram update",
+  "whisper_attempts": 1,
+  "whisper_duration_ms": 1362,
+  "provider_output": {
+    "error": "Bad request - please check your parameters"
+  },
+  "branch": "Contingencia sin entrega",
+  "status": "needs_human",
+  "reason": "TRANSCRIPTION_FAILED",
+  "output": "No pude entender el audio. Envía tu consulta por escrito o solicita revisión humana.",
+  "llm_calls": 0,
+  "tts_calls": 0,
+  "telegram_messages": 0,
+  "binary_retained_in_result": false,
+  "saved_execution_history": false,
+  "cost": null,
+  "limit": "Prepared readable fallback, not a genuine incoming Telegram or delivered text response. Native Get File not exercised."
+}

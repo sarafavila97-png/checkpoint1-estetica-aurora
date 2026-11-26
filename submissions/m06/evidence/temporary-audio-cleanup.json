@@ -1,0 +1,16 @@
+{
+  "workflow_id": "Z5SydQJodOxB85co",
+  "observed_at": "2026-11-26T12:35:52.485982+00:00",
+  "current_hosted_fixture_audio_removed": true,
+  "current_hosted_export_sha256": "0b7efc95d95b090724c24eaf51c15711f190ba23bd28b260f6ab5198c4e1f3bb",
+  "workflow_archived_via_native_ui": true,
+  "local_generated_audio_removed": [
+    "m6-synthetic-question.wav",
+    "m6-synthetic-question.aiff"
+  ],
+  "private_harness_binary_removed": true,
+  "limitations": [
+    "Archiving is reversible. Historical workflow versions or provider infrastructure may retain earlier synthetic fixture bytes; no claim of complete erasure.",
+    "Cleanup covers the known M6 synthetic integration fixture, not unrelated account data. No genuine user audio was used."
+  ]
+}
