@@ -1,0 +1,20 @@
+[
+  {
+    "request_id": "chat:m2-001",
+    "status": "success",
+    "output": "El costo del manicure clásico con esmalte tradicional en Estética Aurora es de 180 MXN. Recuerda que este negocio es una demostración con datos ficticios. Si necesitas más información, por favor consulta con recepción.",
+    "evidence": [
+      {
+        "source_id": "Aurora/Base/0",
+        "source_kind": "aurora_sheet",
+        "text": "\"[{\\\"row_number\\\":2,\\\"clave\\\":\\\"contexto\\\",\\\"categoria\\\":\\\"general\\\",\\\"informacion\\\":\\\"Estética Aurora. Negocio ficticio para una práctica académica. Todos los datos son de prueba; los precios se expresan en MXN.\\\"},{\\\"row_number\\\":3,\\\"clave\\\":\\\"corte\\\",\\\"categoria\\\":\\\"servicio\\\",\\\"informacion\\\":\\\"Corte de cabello. Incluye lavado y secado sencillo.\\\",\\\"precio_mxn\\\":250,\\\"duracion_min\\\":45},{\\\"row_number\\\":4,\\\"clave\\\":\\\"peinado\\\",\\\"categoria\\\":\\\"servicio\\\",\\\"informacion\\\":\\\"Peinado sencillo. No incluye accesorios.\\\",\\\"precio_mxn\\\":350,\\\"duracion_min\\\":60},{\\\"row_number\\\":5,\\\"clave\\\":\\\"manicure\\\",\\\"categoria\\\":\\\"servicio\\\",\\\"informacion\\\":\\\"Manicure clásico con esmalte tradicional.\\\",\\\"precio_mxn\\\":180,\\\"duracion_min\\\":40},{\\\"row_number\\\":6,\\\"clave\\\":\\\"pedicure\\\",\\\"categoria\\\":\\\"servicio\\\",\\\"informacion\\\":\\\"Pedicure estético con esmalte tradicional.\\\",\\\"precio_mxn\\\":250,\\\"duracion_min\\\":50},{\\\"row_number\\\":7,\\\"clave\\\":\\\"horario\\\",\\\"categoria\\\":\\\"general\\\",\\\"informacion\\\":\\\"Lunes a viernes de 10:00 a 19:00. Sábado de 10:00 a 15:00. Domingo cerrado. Horario local de la estética ficticia.\\\"},{\\\"row_number\\\":8,\\\"clave\\\":\\\"citas\\\",\\\"categoria\\\":\\\"politica\\\",\\\"informacion\\\":\\\"Este asistente solo informa. No consulta disponibilidad, no reserva, no modifica ni cancela citas. Las solicitudes de citas requieren atención de recepción.\\\"},{\\\"row_number\\\":9,\\\"clave\\\":\\\"pagos\\\",\\\"categoria\\\":\\\"politica\\\",\\\"informacion\\\":\\\"En este ejemplo se acepta efectivo y tarjeta de débito o crédito. El asistente no procesa pagos.\\\"},{\\\"row_number\\\":10,\\\"clave\\\":\\\"promociones\\\",\\\"categoria\\\":\\\"politica\\\",\\\"informacion\\\":\\\"No hay promociones registradas en esta base. El asistente no puede ofrecer descuentos.\\\"},{\\\"row_number\\\":11,\\\"clave\\\":\\\"direccion\\\",\\\"categoria\\\":\\\"general\\\",\\\"informacion\\\":\\\"No se ha definido una dirección para este negocio ficticio. No inventar una ubicación.\\\"},{\\\"row_number\\\":12,\\\"clave\\\":\\\"contacto\\\",\\\"categoria\\\":\\\"general\\\",\\\"informacion\\\":\\\"No se ha definido un teléfono público. Las consultas que requieren atención humana se incluyen en el reporte enviado al responsable configurado en n8n.\\\"},{\\\"row_number\\\":13,\\\"clave\\\":\\\"alcance\\\",\\\"categoria\\\":\\\"politica\\\",\\\"informacion\\\":\\\"Solo servicios estéticos no médicos. No realizar diagnósticos, recomendar tratamientos médicos ni prometer resultados.\\\"}]\"",
+        "section": "Base",
+        "page_start": null,
+        "page_end": null,
+        "score": null,
+        "source_version": "M1"
+      }
+    ],
+    "delivery": "dry_run"
+  }
+]

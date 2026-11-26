@@ -1,0 +1,8 @@
+.superpowers/
+__pycache__/
+work/
+.env
+*-private.json
+*.mp3
+*.wav
+*.ogg

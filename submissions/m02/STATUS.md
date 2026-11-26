@@ -1,0 +1,7 @@
+# M2: implementación probada; entrega incompleta
+
+Snapshot de los tres exports alojados probados el 26/11/2026. Contiene evidencia de éxito, rutas alternativas y error interno del redactor. La configuración normal fue restaurada y la regresión pasó.
+
+Pendiente: reemplazar captura incorrecta del redactor, completar capturas de contrato/wait/error y generar/revisar el PDF obligatorio. No se declara M2 cerrado. Los workflows están guardados e inactivos.
+
+Importar workers primero y volver a enlazar sus IDs desde el manager; asignar credenciales GPT-4o y Google Sheets y sustituir REPLACE_AURORA_SHEET_ID. Estos exports son snapshots sanitizados de los alojados; scripts/build_module2.py solo produce borradores fuera del repositorio.

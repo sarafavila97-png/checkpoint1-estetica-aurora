@@ -1,0 +1,26 @@
+{
+  "method": "Verbatim transcription of full native n8n Execute Worker redaccion output panel",
+  "worker_execution_id": "268",
+  "fault": "Temporary prompt expression threw M2_CONTROLLED_WRITER_FAILURE inside saved writer; native onError continuation reached WorkerResult",
+  "worker_result": {
+    "schema_version": "1",
+    "request_id": "chat:m2-001",
+    "status": "error",
+    "domain": "aurora_demo",
+    "result": {
+      "answer": "",
+      "evidence": [],
+      "proposed_action": "review"
+    },
+    "error": {
+      "code": "WRITER_ERROR",
+      "message": "Redacción no disponible",
+      "retryable": false
+    }
+  },
+  "manager_result": {
+    "status": "error",
+    "output": "La consulta requiere revisión humana."
+  },
+  "restoration": "Export prompt equals exact normal pre-fault export; no controlled-failure expression remains."
+}

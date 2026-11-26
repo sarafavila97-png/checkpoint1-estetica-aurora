@@ -1,0 +1,36 @@
+{
+  "method": "Transcription of live native n8n output panels; not a full execution export",
+  "date": "2026-11-26",
+  "harness_workflow": "KLT4rogwNZT0f8hW",
+  "read_workflow": "oap8j98XvShrjhr7",
+  "write_workflow": "f9IIvpgiyEKgiYTX",
+  "case_id": "chat:m3-A1",
+  "session_id": "aurora_demo:chat:m3-A",
+  "record_id": "rec447UrtmXlGLU5F",
+  "first_write": {
+    "ok": true,
+    "updated": true,
+    "accepted_message_count": 1,
+    "last_request_ids": [
+      "chat:m3-A1"
+    ],
+    "timestamp": "2026-11-26T08:06:14.695Z"
+  },
+  "initial_integration_issue": "Existing read ended at IF output 2; parent final Code node did not execute. Subexecution275 returned correct existing record on branch2.",
+  "fix": "Added native No Operation terminal to false IF branch in both saved workers; output now returns on branch1.",
+  "replay": {
+    "final_code_produced_items": 1,
+    "duplicate": true,
+    "after_accepted_message_count": 1,
+    "after_timestamp": "2026-11-26T08:06:14.695Z"
+  },
+  "remaining": [
+    "interleaved sessions",
+    "sixth-message hosted summary",
+    "malformed summary hosted test",
+    "dependency error hosted test",
+    "manager and short memory integration",
+    "fresh hosted exports/parity",
+    "PDF"
+  ]
+}

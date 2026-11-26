@@ -1,0 +1,63 @@
+{
+  "evidence_type": "UI transcription of final native n8n table, not raw execution export",
+  "workflow_id": "Va3WktVYCBsrspr9",
+  "session_id": "aurora_demo:chat:m3-real-C",
+  "record_id": "recUoeEaOqCUErHMb",
+  "duration_seconds": 41.663,
+  "turns": [
+    {
+      "turn": 1,
+      "status": "PASS",
+      "count": 1,
+      "summary": "empty"
+    },
+    {
+      "turn": 2,
+      "status": "PASS",
+      "count": 2,
+      "summary": "empty"
+    },
+    {
+      "turn": 3,
+      "status": "PASS",
+      "count": 3,
+      "summary": "empty"
+    },
+    {
+      "turn": 4,
+      "status": "PASS",
+      "count": 4,
+      "summary": "empty"
+    },
+    {
+      "turn": 5,
+      "status": "PASS",
+      "count": 5,
+      "summary": "empty"
+    },
+    {
+      "turn": 6,
+      "status": "PASS",
+      "count": 0,
+      "summary": "generated JSON"
+    }
+  ],
+  "generated_summary": {
+    "asunto_principal": "Consulta sobre servicios de manicure en Estética Aurora",
+    "puntos_clave": [
+      "El costo del manicure clásico es de 180 MXN.",
+      "El horario es de lunes a viernes de 10:00 a 19:00 y sábados de 10:00 a 15:00.",
+      "Se aceptan pagos en efectivo y con tarjeta de débito o crédito.",
+      "La duración del manicure se menciona como 45 minutos, pero sin evidencia.",
+      "La preferencia de esmalte coral fue mencionada por el usuario."
+    ],
+    "accion_requerida": "Revisión humana para confirmar detalles y preferencias."
+  },
+  "coverage_evidence": "The executed validation accepts six_exchanges only for six items each containing human and ai strings; no partial marker in generated summary. Raw sub-execution inspection unavailable because history disabled (UI: Data is missing).",
+  "defect_found": "Turn 2 writer stated lack of evidence while manager status remained success. M3 knowledge draft now rejects empty current-turn tool evidence with typed MISSING_CURRENT_EVIDENCE. Hosted update and regression rerun pending.",
+  "limitations": [
+    "Persistence assertions passed; response quality not fully accepted.",
+    "Turn 6 semantic router chose human review; first-turn preference still preserved in LLM-generated summary.",
+    "No claim of full M3 acceptance or PDF completion."
+  ]
+}

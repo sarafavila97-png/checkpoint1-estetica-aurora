@@ -1,0 +1,29 @@
+{
+  "method": "Observed live n8n input/output panels",
+  "cases": [
+    {
+      "id": "chat:m2-002",
+      "query": "Hola",
+      "route": "CLARIFY",
+      "status": "needs_human",
+      "output": "¿Qué servicio de Estética Aurora deseas consultar?"
+    },
+    {
+      "id": "chat:m2-003",
+      "query": "Reserva una cita de manicure para mañana a las 10",
+      "route": "HUMAN",
+      "status": "needs_human",
+      "output": "La consulta requiere revisión humana. No se realizó ninguna acción externa."
+    },
+    {
+      "id": "chat:m2-004",
+      "query": "¿Cuánto cuesta el manicure?",
+      "fault": "Temporary nonexistent knowledge workflow ID",
+      "native_error": "Workflow does not exist.",
+      "structured_code": "WORKER_ERROR",
+      "status": "needs_human",
+      "output": "La consulta requiere revisión humana. No se realizó ninguna acción externa.",
+      "restored": true
+    }
+  ]
+}

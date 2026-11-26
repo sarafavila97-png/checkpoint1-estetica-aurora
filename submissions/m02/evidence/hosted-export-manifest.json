@@ -1,0 +1,23 @@
+[
+  {
+    "file": "aurora_manager.json",
+    "workflow_id": "Fkcotlqy3h9XPQnt",
+    "node_count": 17,
+    "sha256": "b6caaeedd10c60bea4b2aeadcb97c4051fe2442f4d3d4d662a4c2e03d188de2e",
+    "normalization": "Only workflow metadata, credential references, and Sheets document ID removed. Node parameters/connections/settings retained from hosted export."
+  },
+  {
+    "file": "workers/aurora_knowledge.json",
+    "workflow_id": "S71ATYU4dBWh1EaN",
+    "node_count": 6,
+    "sha256": "7627e8bf8c8376b450f514b2d962a5ea51cec4f882b7ddb794516f65c7a2492f",
+    "normalization": "Only workflow metadata, credential references, and Sheets document ID removed. Node parameters/connections/settings retained from hosted export."
+  },
+  {
+    "file": "workers/response_writer.json",
+    "workflow_id": "qb9XAjhzoblGhJVg",
+    "node_count": 5,
+    "sha256": "30ada68d83bdde378b923fdbb22cdbb9c12f7c7a876dc56bbb8f3ec46a758176",
+    "normalization": "Only workflow metadata, credential references, and Sheets document ID removed. Node parameters/connections/settings retained from hosted export."
+  }
+]

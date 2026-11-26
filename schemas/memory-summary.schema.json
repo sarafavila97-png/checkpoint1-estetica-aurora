@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asunto_principal",
+    "puntos_clave",
+    "accion_requerida"
+  ],
+  "properties": {
+    "asunto_principal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "puntos_clave": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      }
+    },
+    "accion_requerida": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    }
+  }
+}

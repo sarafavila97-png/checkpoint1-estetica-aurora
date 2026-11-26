@@ -1,0 +1,25 @@
+{
+  "evidence_type": "UI transcription of native final output table, not raw execution export",
+  "workflow_id": "KrGQDNDArYLbAzFM",
+  "duration_seconds": 9.361,
+  "status": "PASS",
+  "session_id": "aurora_demo:chat:m3-cold-E",
+  "record_id": "recLqmvtELpAf7rnQ",
+  "answer": "Preferiste el esmalte coral.",
+  "provenance": {
+    "source": "validated_session_summary",
+    "session_id": "aurora_demo:chat:m3-cold-E",
+    "record_id": "recLqmvtELpAf7rnQ"
+  },
+  "setup": "Fresh E Session_ID; copied only validated durable fields from C into synthetic fixture. No conversation or native short buffer copied. Query did not contain coral. Manager read Airtable then semantic MEMORY_RECALL chain; no memory subnode connected to recall chain.",
+  "assertions": [
+    "status success",
+    "answer contains coral",
+    "memory_status saved",
+    "provenance record_id equals newly restored record"
+  ],
+  "limitations": [
+    "Academic synthetic restore simulation, not an actual server restart.",
+    "Full M3 PDF/export parity still pending."
+  ]
+}

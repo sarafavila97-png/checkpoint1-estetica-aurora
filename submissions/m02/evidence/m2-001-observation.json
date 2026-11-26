@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-11-26",
+  "method": "n8n manual execution inspected through native UI",
+  "manager_id": "Fkcotlqy3h9XPQnt",
+  "workers": {
+    "knowledge": "S71ATYU4dBWh1EaN",
+    "writer": "qb9XAjhzoblGhJVg"
+  },
+  "request_id": "chat:m2-001",
+  "query": "¿Cuánto cuesta el manicure?",
+  "status": "success",
+  "output": "El costo del manicure clásico con esmalte tradicional en Estética Aurora es de 180 MXN. Recuerda que este negocio es una demostración con datos ficticios. Si necesitas más información, por favor consulta con recepción.",
+  "evidence_observed": {
+    "source_id": "Aurora/Base/0",
+    "source_kind": "aurora_sheet",
+    "section": "Base",
+    "source_version": "M1"
+  },
+  "scope": "Observed output and populated Sheets observation; not a full execution export. Negative branches not yet tested."
+}
