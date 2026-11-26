@@ -1,0 +1,13 @@
+{
+  "package": "@llamaindex/n8n-nodes-llamacloud",
+  "version": "6.7.2",
+  "tarball_sha256": "0557fc7f976dc9210f4fbc96797e3a0b0ebba7f51999cc71f15a859b168015c4",
+  "retrieval_controls": [
+    "indexId",
+    "query",
+    "topK"
+  ],
+  "minimum_score_control": false,
+  "native_output": "text extracted from results; score/metadata discarded",
+  "usableAsTool": true
+}

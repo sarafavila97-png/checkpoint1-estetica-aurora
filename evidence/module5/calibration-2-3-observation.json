@@ -1,0 +1,51 @@
+{
+  "source": "Manual transcription of live final n8n output",
+  "workflow_id": "BTNYBWLwojDM8r60",
+  "duration_seconds": 4.855,
+  "cases": [
+    {
+      "case_id": "threshold-known",
+      "query": "Qué servicios ofrece Outer Agent y cuáles son sus precios publicados?",
+      "top_k": 3,
+      "score_threshold": 0.5,
+      "results": [],
+      "error": null
+    },
+    {
+      "case_id": "unsupported",
+      "query": "Cuál es la masa exacta del agujero negro central de la galaxia Messier 87?",
+      "top_k": 3,
+      "score_threshold": null,
+      "results": [
+        {
+          "score": 0.00819672131147541,
+          "rerank_score": 0.0039304756,
+          "pages": [
+            10,
+            10
+          ],
+          "chunk_index": 9
+        },
+        {
+          "score": 0.016129032258064516,
+          "rerank_score": 0.0033927616,
+          "pages": [
+            8,
+            9
+          ],
+          "chunk_index": 7
+        },
+        {
+          "score": 0.00819672131147541,
+          "rerank_score": 0.0028674435,
+          "pages": [
+            1,
+            2
+          ],
+          "chunk_index": 0
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "file": "workflows/module5/outer_agent_retrieval.json",
+    "sha256": "92824395ab803470c7e5acb402cf1ea83fc4d27afad5d420dcef49ad4c1b50d1",
+    "hosted_id": "JVedAkVfuyWqdXC3",
+    "nodes": 5,
+    "verification": "exact sanitized hosted snapshot; draft parameter equivalence after documented native default normalization"
+  },
+  {
+    "file": "workflows/module5/outer_agent_knowledge.json",
+    "sha256": "6f79cc5d605e684731a9f08e0ffac01694df9d9f404ee604c621a3a984cb7216",
+    "hosted_id": "Yy3L0fXMzvDOizyj",
+    "nodes": 7,
+    "verification": "exact sanitized hosted snapshot; draft parameter equivalence after documented native default normalization"
+  },
+  {
+    "file": "workflows/module5/aurora_manager.json",
+    "sha256": "f1deb63859f43fcc1a7ed977ae7821f6981a231ba6345e3c5966033e66a76b44",
+    "hosted_id": "mAqLqfynaua8kF3K",
+    "nodes": 48,
+    "verification": "exact sanitized hosted snapshot; draft parameter equivalence after documented native default normalization"
+  }
+]

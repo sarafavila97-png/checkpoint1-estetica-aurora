@@ -1,0 +1,40 @@
+{
+  "source": "Manual transcription of live n8n output",
+  "workflow_id": "BTNYBWLwojDM8r60",
+  "query": "Qué servicios ofrece Outer Agent y cuáles son sus precios publicados?",
+  "top_k": 3,
+  "score_threshold": null,
+  "duration_seconds": 2.695,
+  "authentication": "Existing LlamaParse credential via HTTP predefinedCredentialType; no secret extraction",
+  "results": [
+    {
+      "score": 0.00819672131147541,
+      "rerank_score": 0.8232293,
+      "pages": [
+        8,
+        9
+      ],
+      "chunk_index": 7
+    },
+    {
+      "score": 0.00819672131147541,
+      "rerank_score": 0.8047902,
+      "pages": [
+        2,
+        3
+      ],
+      "chunk_index": 1
+    },
+    {
+      "score": 0.015873015873015872,
+      "rerank_score": 0.6991933,
+      "pages": [
+        7,
+        8
+      ],
+      "chunk_index": 6
+    }
+  ],
+  "parsed_directory_file_id": "dfl-2u33so3mqq3mweqn51y1yryx96zc",
+  "metadata": null
+}

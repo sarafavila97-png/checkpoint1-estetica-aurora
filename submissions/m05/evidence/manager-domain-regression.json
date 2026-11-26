@@ -1,0 +1,42 @@
+{
+  "workflow_id": "9EwTqOkjmAgMvjJk",
+  "manager_id": "mAqLqfynaua8kF3K",
+  "duration_seconds": 27.165,
+  "observed_cases": [
+    {
+      "request_id": "chat:m5-manager-1",
+      "status": "success",
+      "answer": "El manicure clásico con esmalte tradicional en Estética Aurora cuesta 180 MXN y tiene una duración de 40 minutos. Recuerda que esta información es parte de un negocio ficticio para una práctica académica.",
+      "harness_passed": true,
+      "behavior_passed": true
+    },
+    {
+      "request_id": "chat:m5-manager-2",
+      "status": "success",
+      "answer_observation": "Outer Agent offers and price ranges, with deterministic PDF citations on pages 8–9 and 2–3. UI table display truncated.",
+      "harness_passed": true,
+      "behavior_passed": true
+    },
+    {
+      "request_id": "chat:m5-manager-3",
+      "status": "needs_human",
+      "answer": "¿Deseas consultar Aurora u Outer Agent, y qué dato necesitas?",
+      "evidence_field": "omitted",
+      "harness_passed": false,
+      "behavior_passed": true
+    },
+    {
+      "request_id": "chat:m5-manager-4",
+      "status": "needs_human",
+      "answer": "¿Deseas consultar Aurora u Outer Agent, y qué dato necesitas?",
+      "evidence_field": "omitted",
+      "harness_passed": false,
+      "behavior_passed": true
+    }
+  ],
+  "memory_status_all": "saved",
+  "delivery_all": "dry_run",
+  "harness_defect": "Clarification outputs omit evidence; initial predicate incorrectly required an empty array. Fixed for future reproductions without rerunning these cases. Original false flags retained.",
+  "cost": null,
+  "held_out_questions_opened": false
+}

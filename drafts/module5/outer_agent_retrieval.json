@@ -1,0 +1,172 @@
+{
+  "name": "Aurora M5 - Recuperacion Outer Agent",
+  "nodes": [
+    {
+      "id": "b34ceef9-c5ed-5a58-ab8f-dbebf6dec53d",
+      "name": "Worker Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "request",
+              "type": "object"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "85837696-05bb-5a5a-9d7e-0acbc442df48",
+      "name": "Validar dominio",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "jsCode": "'use strict';\nconst domains=['aurora_demo','outer_agent'];\nfunction exact(o, keys, label){if(!o||typeof o!=='object'||Array.isArray(o))throw Error(label+' object required');for(const k of Object.keys(o))if(!keys.includes(k))throw Error(label+' unexpected '+k);for(const k of keys)if(!(k in o))throw Error(label+' missing '+k);}\nfunction text(v,label,max=4000){if(typeof v!=='string'||!v.trim()||v.length>max)throw Error(label+' invalid');}\nfunction evidence(v,domain){if(!Array.isArray(v))throw Error('evidence invalid');for(const e of v){exact(e,['source_id','source_kind','text','section','page_start','page_end','score','source_version'],'evidence');text(e.source_id,'source_id');text(e.text,'evidence text',12000);if(!['aurora_sheet','outer_agent_pdf'].includes(e.source_kind))throw Error('source_kind invalid');if(e.source_kind!==(domain==='aurora_demo'?'aurora_sheet':'outer_agent_pdf'))throw Error('evidence domain mismatch');}}\nfunction validateRequest(r){exact(r,['schema_version','request_id','session_id','domain','channel','query','user','context','evidence','candidate','correction_attempt','mode'],'request');if(r.schema_version!=='1')throw Error('version invalid');if(!domains.includes(r.domain))throw Error('domain invalid');text(r.request_id,'request_id',200);text(r.session_id,'session_id',250);if(!r.session_id.startsWith(r.domain+':'+r.channel+':'))throw Error('session domain mismatch');if(!['chat','gmail','telegram'].includes(r.channel))throw Error('channel invalid');text(r.query,'query');exact(r.user,['display_name','email'],'user');exact(r.context,['summary','case_status','key_facts'],'context');if(!Array.isArray(r.context.key_facts)||r.context.key_facts.length>5)throw Error('key facts invalid');if(r.candidate!==null&&typeof r.candidate!=='string')throw Error('candidate invalid');if(!Number.isInteger(r.correction_attempt)||r.correction_attempt<0||r.correction_attempt>2)throw Error('attempt invalid');if(!['dry_run','live'].includes(r.mode))throw Error('mode invalid');evidence(r.evidence,r.domain);return r;}\nfunction validateResult(r,q){validateRequest(q);exact(r,['schema_version','request_id','status','domain','result','error'],'result');if(r.domain!==q.domain)throw Error('domain mismatch');if(r.request_id!==q.request_id)throw Error('request_id mismatch');if(r.schema_version!=='1'||!['success','error','needs_human'].includes(r.status))throw Error('status/version invalid');exact(r.result,['answer','evidence','proposed_action'],'result body');evidence(r.result.evidence,r.domain);if(typeof r.result.answer!=='string')throw Error('answer invalid');if(!['none','draft_email','review'].includes(r.result.proposed_action))throw Error('action invalid');if(r.status==='success'){text(r.result.answer,'answer',12000);if(r.error!==null)throw Error('success has error');}else if(r.status==='error'){exact(r.error,['code','message','retryable'],'error');if(r.result.answer!=='')throw Error('failed answer must be empty');}return r;}\nfunction failure(q,code,message){return {schema_version:'1',request_id:q.request_id,status:'error',domain:q.domain,result:{answer:'',evidence:[],proposed_action:'review'},error:{code,message,retryable:false}};}\n\nconst q=validateRequest($input.first().json.request);if(q.domain!=='outer_agent')throw Error('RETRIEVAL_DOMAIN_MISMATCH');return [{json:{request:q}}];"
+      }
+    },
+    {
+      "id": "06684352-730b-5948-8a2a-050cb534d62e",
+      "name": "Top K y Minimum Score",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "request",
+              "name": "request",
+              "value": "={{ $json.request }}",
+              "type": "object"
+            },
+            {
+              "id": "config",
+              "name": "config",
+              "value": "{\"file_id\": \"dfl-2u33so3mqq3mweqn51y1yryx96zc\", \"source_version\": \"v1\", \"page_count\": 10, \"top_k\": 3, \"minimum_score\": 0.5}",
+              "type": "object"
+            }
+          ]
+        },
+        "includeOtherFields": false,
+        "options": {}
+      }
+    },
+    {
+      "id": "43e16144-b1d6-5a9b-b468-1b43f6d3d4be",
+      "name": "LlamaCloud recuperacion con metadatos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.cloud.llamaindex.ai/api/v1/retrieval/retrieve",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "llamaParseApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "project_id",
+              "value": "f0b7251e-a5fe-46d8-a231-181ed03fc94f"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {index_id:'dec-inryey4amn6uqtzn002x2ybda4rx',query:$json.request.query,top_k:$json.config.top_k} }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "35407c29-defa-5b72-a6bd-abd9745341c9",
+      "name": "Aplicar Minimum Score y verificar fuente",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        300
+      ],
+      "parameters": {
+        "jsCode": "'use strict';\nconst NO_SE='No sé. No está documentado en la fuente disponible.';\nfunction normalizeRetrieval(raw,cfg,domain){\n if(domain!=='outer_agent')throw Error('RETRIEVAL_DOMAIN_MISMATCH');\n if(!raw||raw.error||!Array.isArray(raw.results))throw Error('RETRIEVAL_UNAVAILABLE');\n if(!cfg||!Number.isInteger(cfg.top_k)||cfg.top_k<1||cfg.top_k>10||!Number.isFinite(cfg.minimum_score)||cfg.minimum_score<0)throw Error('INVALID_RETRIEVAL_CONFIG');\n const evidence=[];\n for(const r of raw.results.slice(0,cfg.top_k)){\n  if(typeof r.rerank_score!=='number'||!Number.isFinite(r.rerank_score))throw Error('MISSING_RERANK_SCORE');\n  if(r.rerank_score<cfg.minimum_score)continue;\n  const f=r.static_fields||{};\n  if(f.parsed_directory_file_id!==cfg.file_id||!Number.isInteger(f.page_range_start)||!Number.isInteger(f.page_range_end)||f.page_range_start<1||f.page_range_end<f.page_range_start||f.page_range_end>cfg.page_count||!Number.isInteger(f.chunk_index)||f.chunk_index<0)throw Error('UNVERIFIABLE_SOURCE');\n  if(typeof r.content!=='string'||!r.content.trim())throw Error('EMPTY_CHUNK');\n  const headings=[...r.content.matchAll(/OA-\\d{2}\\.\\d+/g)].map(m=>m[0]);\n  evidence.push({source_id:cfg.file_id+':'+f.chunk_index,source_kind:'outer_agent_pdf',text:Array.from(r.content).slice(0,12000).join(''),section:[...new Set(headings)].join(', ')||null,page_start:f.page_range_start,page_end:f.page_range_end,score:r.rerank_score,source_version:cfg.source_version});\n }\n return {ok:true,evidence,top_k:cfg.top_k,minimum_score:cfg.minimum_score,score_field:'rerank_score'};\n}\nfunction toolEvidence(steps){\n const matching=(steps||[]).filter(s=>s.action?.tool==='Consultar_documentacion_Outer_Agent');\n if(matching.length!==1)throw Error('RETRIEVAL_TOOL_CALL_COUNT');\n let o=matching[0].observation;if(typeof o==='string')o=JSON.parse(o);\n if(Array.isArray(o)){if(o.length!==1)throw Error('INVALID_TOOL_RESULT');o=o[0];}\n if(o?.json)o=o.json;\n if(o?.ok!==true||!Array.isArray(o.evidence))throw Error('RETRIEVAL_TOOL_FAILED');\n return o.evidence;\n}\nfunction groundedAnswer(output,evidence){\n if(!output||Object.keys(output).sort().join('|')!=='answer|source_ids|supported'||typeof output.supported!=='boolean'||typeof output.answer!=='string'||!Array.isArray(output.source_ids))throw Error('INVALID_GROUNDED_ANSWER');\n if(!output.supported)return {answer:NO_SE,evidence:[]};\n if(!output.answer.trim()||!output.source_ids.length)throw Error('MISSING_CITATION');\n const selected=[...new Set(output.source_ids)].map(id=>{\n  const e=evidence.find(e=>e.source_id===id);\n  if(!e||e.source_kind!=='outer_agent_pdf'||!Number.isFinite(e.score)||e.score<0.5||!Number.isInteger(e.page_start)||!Number.isInteger(e.page_end))throw Error('UNSUPPORTED_CITATION');return e;\n });\n const citations=selected.map(e=>'Outer_Agent_Fuente_Organizacional_v1.pdf, '+(e.page_start===e.page_end?'p. '+e.page_start:'pp. '+e.page_start+'–'+e.page_end)+(e.section?' ('+e.section+')':''));\n return {answer:output.answer.trim()+'\\nFuente: '+[...new Set(citations)].join('; ')+'.',evidence:selected};\n}\nfunction domainRoute(route,domain){\n if(!['aurora_demo','outer_agent'].includes(domain))throw Error('INVALID_DOMAIN');\n if(!['AURORA_INFO','OUTER_AGENT_INFO','MEMORY_RECALL','HUMAN','CLARIFY'].includes(route))return 'HUMAN';\n if((route==='AURORA_INFO'&&domain!=='aurora_demo')||(route==='OUTER_AGENT_INFO'&&domain!=='outer_agent'))return 'CLARIFY';\n return route;\n}\n\nconst q=$('Top K y Minimum Score').first().json;try{return [{json:normalizeRetrieval($input.first().json,q.config,q.request.domain)}];}catch(e){return [{json:{ok:false,evidence:[],error:{code:e.message,retryable:false}}}];}"
+      }
+    }
+  ],
+  "connections": {
+    "Worker Input": {
+      "main": [
+        [
+          {
+            "node": "Validar dominio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar dominio": {
+      "main": [
+        [
+          {
+            "node": "Top K y Minimum Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Top K y Minimum Score": {
+      "main": [
+        [
+          {
+            "node": "LlamaCloud recuperacion con metadatos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LlamaCloud recuperacion con metadatos": {
+      "main": [
+        [
+          {
+            "node": "Aplicar Minimum Score y verificar fuente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 180,
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {}
+}

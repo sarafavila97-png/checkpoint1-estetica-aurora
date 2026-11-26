@@ -1,0 +1,13 @@
+{
+  "frozen_at_utc": "2026-11-26T10:21:18.124255+00:00",
+  "held_out_questions_opened": false,
+  "configuration": "top_k=3; rerank_score minimum=0.5; one workflow tool call; no API score_threshold",
+  "files": {
+    "workflows/module5/outer_agent_knowledge.json": "6f79cc5d605e684731a9f08e0ffac01694df9d9f404ee604c621a3a984cb7216",
+    "workflows/module5/aurora_manager.json": "f1deb63859f43fcc1a7ed977ae7821f6981a231ba6345e3c5966033e66a76b44",
+    "workflows/module5/outer_agent_retrieval.json": "92824395ab803470c7e5acb402cf1ea83fc4d27afad5d420dcef49ad4c1b50d1",
+    "prompts/outer_agent_rag.txt": "8f837a54b3a08a25d6bb17f7a21f24660f25faafaa23d501039042a941a3fdd4",
+    "src/retrieval.js": "e6c591e98ae86ee6fc6059db216d1b0cec267476be4cc90476d6ba8e7413d8f3",
+    "evidence/module5/retrieval-config-frozen.json": "319da215a2be794e82da9e092d451680f4b7bf3a48df29b74a4153f8c9808fce"
+  }
+}

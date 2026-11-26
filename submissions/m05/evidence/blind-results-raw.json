@@ -1,0 +1,66 @@
+{
+  "harness_execution_id": "444",
+  "captured_at": "2026-11-26T10:22:53.581Z",
+  "cases": [
+    {
+      "request_id": "chat:m5-blind-T1",
+      "status": "needs_human",
+      "output": "La consulta requiere revisión humana. No se realizó ninguna acción externa.",
+      "delivery": "dry_run",
+      "memory_status": "saved"
+    },
+    {
+      "request_id": "chat:m5-blind-T2",
+      "status": "success",
+      "output": "No sé. No está documentado en la fuente disponible.",
+      "evidence": [],
+      "delivery": "dry_run",
+      "memory_status": "saved"
+    },
+    {
+      "request_id": "chat:m5-blind-T3",
+      "status": "success",
+      "output": "El servicio Care de Outer Agent publica que ofrece respuesta el mismo día cuando un flujo se rompe. Sin embargo, no se define un plazo de resolución garantizado para estos casos. Esto significa que, aunque se comprometen a responder rápidamente, no hay una garantía de que el problema se resolverá el mismo día.\nFuente: Outer_Agent_Fuente_Organizacional_v1.pdf, pp. 6–7 (OA-06.4, OA-07.1, OA-07.2, OA-07.3, OA-07.4, OA-07.5, OA-07.6); Outer_Agent_Fuente_Organizacional_v1.pdf, pp. 8–9 (OA-08.5, OA-09.1, OA-09.2, OA-09.3, OA-09.4, OA-09.5, OA-09.6, OA-09.7, OA-09.8).",
+      "evidence": [
+        {
+          "source_id": "dfl-2u33so3mqq3mweqn51y1yryx96zc:5",
+          "source_kind": "outer_agent_pdf",
+          "text": "El Care Plan se anuncia cancelable cualquier mes, con propiedad y continuidad de lo construido para el cliente. No se publica un plazo exacto de preaviso, un cálculo de prorratio o una devolución de mensualidades. Esos detalles no deben inventarse. [S4, S5]\n\n### OA-06.4 Condiciones no documentadas\n\nNo se encontraron en las nueve páginas revisadas condiciones completas sobre depósitos, cuotas de pago, impuestos, moneda contractual, descuentos, devoluciones, vigencia del crédito o cargos por cambios de alcance. Una consulta específica sobre cualquiera de esos puntos requiere confirmación del propietario, no extrapolación a partir de los rangos publicados.\n\nFuentes de la página: S3: https://outeragent.ai/roadmap | S4: https://outeragent.ai/process | S5: https://outeragent.ai/pricing\nOUTER AGENT | v1.0 | BORRADOR PARA VALIDACIÓN | 2026-11-25 | 6\n# 07 / Contacto, soporte y propiedad\n\nDiferenciar una respuesta comercial, la atención de una incidencia y su resolución evita promesas no publicadas.\n\n### OA-07.1 Entrada de proyectos\n\nEl formulario de contacto solicita nombre, empresa, correo, teléfono opcional y una descripción de lo que consume tiempo durante la semana. Invita a explicar el problema en lenguaje cotidiano. El correo publicado es sam@outeragent.ai; la página afirma que formulario y correo llegan a la misma persona. No se envió una consulta durante esta revisión. [S6]\n\n### OA-07.2 Respuesta comercial\n\nContact publica respuesta en un día hábil, normalmente antes. Roadmap indica confirmar el encaje en un día hábil. Estos textos no confirman una fecha de inicio, disponibilidad inmediata o una respuesta garantizada durante fines de semana. No se encontró una zona horaria que defina el día hábil. [S3, S6]\n\n### OA-07.3 Soporte incluido y Care\n\nCada Build incluye 30 días de soporte después de la puesta en marcha. Care es una relación mensual desde $750 con monitoreo, correcciones, ajustes, iteración y soporte. Pricing y Services publican respuesta el mismo día cuando se rompe un flujo. Process describe monitoreo continuo y mejoras mensuales. No se publica un número garantizado de mejoras ni horas incluidas. [S2, S4, S5, S8]\n\n### OA-07.4 Escalamiento: límites de la información\n\nLa página Services menciona una persona que conoce la configuración y está disponible para atenderla. No publica teléfono de emergencias, matriz de gravedad, cadena de escalamiento, objetivo de reparación, horario formal de cobertura ni compensaciones por incumplimiento. La derivación a un abogado de guardia en Results pertenece al ejemplo de un cliente legal; no es el canal de soporte de Outer Agent. [S2, S7]\n\n### OA-07.5 Propiedad y salida\n\nEl sitio afirma que las cuentas, automatizaciones y documentación están a nombre del cliente desde el primer día y que otro proveedor podría continuar desde esa documentación. Pricing señala que cancelar Care no cambia la propiedad y que lo construido sigue funcionando. No equivale a garantizar operación indefinida sin pagar servicios externos o sin mantenimiento. [S5, S8]\n\n### OA-07.6 Guía de admisión propuesta, no política oficial\n\nPara organizar una consulta puede resumirse el proceso problemático, las herramientas actuales, quién hace el trabajo, su frecuencia y el resultado deseado. Son sugerencias editoriales derivadas del método del Roadmap, no campos adicionales obligatorios del formulario ni requisitos contractuales. No hace falta incluir contraseñas o datos de clientes para explicar inicialmente el problema.",
+          "section": "OA-06.4, OA-07.1, OA-07.2, OA-07.3, OA-07.4, OA-07.5, OA-07.6",
+          "page_start": 6,
+          "page_end": 7,
+          "score": 0.6216563,
+          "source_version": "v1"
+        },
+        {
+          "source_id": "dfl-2u33so3mqq3mweqn51y1yryx96zc:7",
+          "source_kind": "outer_agent_pdf",
+          "text": "La cobertura 24/7 describe el asistente de admisión del ejemplo; no demuestra un centro de soporte de Outer Agent abierto permanentemente. [S7]\n\n### OA-08.5 Cifras que requieren contexto\n\nEl ejemplo HVAC menciona aproximadamente 11 horas semanales dedicadas a cotizar y, en su panel, unas 14 horas recuperadas. No explica la diferencia, por lo que no deben reconciliarse inventando tareas. Pricing ilustra una recuperación cercana a cuatro meses con $18,000, 14 horas semanales y $75 por hora; no incluye un modelo completo de costos recurrentes, utilización o impuestos. [S5, S7]\n\nFuentes de la página: S1: https://outeragent.ai/ | S5: https://outeragent.ai/pricing | S7: https://outeragent.ai/results\nOUTER AGENT | v1.0 | BORRADOR PARA VALIDACIÓN | 2026-11-25 | 8\n# 09 / Preguntas frecuentes para consulta\n\nRespuestas sintetizadas de las fuentes, no transcripciones de todas las preguntas desplegables del sitio.\n\n### **OA-09.1 ¿Necesitamos un equipo técnico?**\n\nNo según el perfil publicado: Outer Agent se dirige a empresas sin equipo tecnológico interno. El cliente aporta conocimiento del proceso y una persona de contacto; la firma se ocupa del diagnóstico y la implementación. Esto no elimina la necesidad de colaboración del equipo. [S1, S3, S8]\n\n### **OA-09.2 ¿Podemos empezar sin pagar o entregar un correo?**\n\nSí: el Scorecard se anuncia gratuito, de nueve preguntas y con resultado instantáneo sin correo obligatorio. El correo corresponde al informe escrito opcional. El Roadmap es un servicio posterior pagado, no parte de la prueba gratuita. [S5, S9]\n\n### **OA-09.3 ¿La primera implementación cuesta siempre $10,000?**\n\nNo. El rango publicado es $10,000-$25,000 o más. El precio y alcance concretos se fijan en el Roadmap antes de comprometerse. La cifra inicial del rango no es una tarifa fija para cualquier solicitud. [S2, S5]\n\n### **OA-09.4 ¿Qué pasa si conviene no automatizar?**\n\nEl Roadmap puede recomendar no construir, ordenar primero un proceso o usar una herramienta existente. El cliente conserva el plan. El sitio no publica un reembolso automático por recibir una recomendación de no construir. [S3, S5]\n\n### **OA-09.5 ¿Tenemos que cambiar todas las herramientas?**\n\nEl catálogo propone conectar las herramientas que el cliente ya utiliza. Process describe construir junto al proceso actual, comparar resultados y cambiar solo cuando se haya observado funcionamiento correcto en trabajos reales. No se garantiza compatibilidad universal con cualquier producto. [S2, S4]\n\n### **OA-09.6 ¿Qué ocurre después del lanzamiento?**\n\nBuild incluye 30 días de soporte. Care ofrece mantenimiento mensual desde $750, con monitoreo, correcciones e iteración. El sitio publica respuesta el mismo día cuando falla un flujo, pero no define un plazo de resolución garantizado. [S2, S4, S5]\n\n### **OA-09.7 ¿Podemos irnos con otro proveedor?**\n\nEl sitio afirma que el cliente conserva sus cuentas, automatizaciones y documentación. El Roadmap es portable y Care se anuncia cancelable cualquier mes. Las condiciones detalladas de preaviso, reembolso y costos de terceros no están documentadas en las páginas revisadas. [S3, S5, S8]\n\n### **OA-09.8 ¿Tienen certificación de seguridad o residencia de datos garantizada?**\n\nNo sé: las páginas públicas revisadas no documentan certificaciones, residencia de datos, proveedores aprobados, retención ni un acuerdo de tratamiento de datos. La ausencia en esta revisión no demuestra que esas medidas no existan; requiere confirmación del propietario.",
+          "section": "OA-08.5, OA-09.1, OA-09.2, OA-09.3, OA-09.4, OA-09.5, OA-09.6, OA-09.7, OA-09.8",
+          "page_start": 8,
+          "page_end": 9,
+          "score": 0.5683445,
+          "source_version": "v1"
+        }
+      ],
+      "delivery": "dry_run",
+      "memory_status": "saved"
+    },
+    {
+      "request_id": "chat:m5-blind-T4",
+      "status": "success",
+      "output": "No sé. No está documentado en la fuente disponible.",
+      "evidence": [],
+      "delivery": "dry_run",
+      "memory_status": "saved"
+    },
+    {
+      "request_id": "chat:m5-blind-T5",
+      "status": "success",
+      "output": "No sé. No está documentado en la fuente disponible.",
+      "evidence": [],
+      "delivery": "dry_run",
+      "memory_status": "saved"
+    }
+  ]
+}

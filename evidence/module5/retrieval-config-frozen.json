@@ -1,0 +1,14 @@
+{
+  "file_id": "dfl-2u33so3mqq3mweqn51y1yryx96zc",
+  "source_version": "v1",
+  "page_count": 10,
+  "top_k": 3,
+  "minimum_score": 0.5,
+  "score_field": "rerank_score",
+  "api_score_threshold": null,
+  "source_pdf_sha256": "6c96c3df7a36e4534bdb413a217629538cf02be62231f18c2358c09453c2dee4",
+  "frozen_before_blind_queries": true,
+  "development_queries": 3,
+  "justification": "Top-K 3 limits context. Minimum 0.5 applies to actual rerank_score only: relevant development chunks 0.699–0.823, unrelated 0.00287–0.00393. These scores are relevance signals, not calibrated probabilities. Server score_threshold=0.5 discarded relevant content and is not used.",
+  "literal_native_retriever_requirement": "unresolved; implemented as explicit workflow-tool adaptation"
+}
