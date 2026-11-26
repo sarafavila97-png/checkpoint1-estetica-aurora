@@ -46,5 +46,6 @@
     "implementation_commit": "51881e18ba4c3053648c930f97cbd597fef3ff7d",
     "remote_ref_verified": true,
     "main_branch_changed": false
-  }
+  },
+  "remaining_gap_audit": "evidence/remaining-gap-audit.json"
 }

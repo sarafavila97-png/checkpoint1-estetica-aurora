@@ -15,3 +15,5 @@ Gmail usa el manager en dry_run para que el adaptador sea el único propietario 
 Telegram permanece inactivo y dry_run. La llegada y respuesta de una nota de voz genuina requieren sesión del usuario y validación operativa del bot. No activar ni cambiar a live hasta completar esa prueba autorizada. El texto aprobado se valida y pasa intacto a TTS; no hay reescritura posterior al juez.
 
 `workflows/` y `evidence/` son copias revisadas; `report.md` es la fuente del PDF. Los constructores, contratos y tests están en las carpetas del repositorio. La prueba de escalamiento envió una notificación real al revisor; no repetirla para regenerar evidencia. M1 ya envió sus correos y tampoco debe repetirse.
+
+Auditoría adicional del 26 de noviembre: véase [registro de pendientes](../../evidence/remaining-gap-audit.json). Reconfirma la limitación nativa de M5 y el inicio de sesión pendiente de Telegram. Gateway muestra USD 0.16 agregados para el workflow M8, incluidos desarrollo y corridas oficiales; no permite imputarlos a las diez corridas ni separar A/B. La estimación minorista y los resultados congelados permanecen intactos.

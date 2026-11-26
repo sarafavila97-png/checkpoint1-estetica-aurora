@@ -120,3 +120,7 @@ Additional literal check: original screenshot names **Vector Store Retrieve Tool
 4. Open every final PDF and inspect every rendered page; confirm required screenshots, prompts, schemas, metrics and source references.
 5. Verify GitHub contains the intended final commit and files. Do not treat a local commit as publication.
 6. Record every remaining mismatch explicitly. Do not mark the overall assignment complete while a required gate is pending, partial, indirect or missing.
+
+## Auditoría acotada posterior a publicación
+
+[Registro del 26 de noviembre](../evidence/remaining-gap-audit.json): conector instalado 6.7.2 Latest, sin Minimum Score ni salida Vector Store; búsqueda Llama sin resultados en el puerto vectorial nativo. Telegram continúa sin sesión en Chrome/Firefox. Gateway presenta USD 0.16 agregados del workflow M8, contaminados por desarrollo previo y redondeados; el costo real de las diez corridas sigue desconocido. No hubo reejecuciones, notificaciones ni cambios en los workflows finales.

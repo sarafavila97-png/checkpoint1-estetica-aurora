@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-26",
+  "timezone": "America/Denver",
+  "scope": "Bounded installed-node, Telegram session and Gateway usage audit; no model/retrieval/audio execution or notifications",
+  "provenance": "Native application UI observations transcribed; pinned official npm artifact inspected without executing package code",
+  "n8n": {
+    "version": "2.49.6",
+    "installed_package": "@llamaindex/n8n-nodes-llamacloud",
+    "package_version": "6.7.2",
+    "ui_latest_label": true,
+    "retrieve_parameters": [
+      "Index ID",
+      "Query",
+      "Top K"
+    ],
+    "minimum_score_parameter": false,
+    "main_input_output": true,
+    "usable_as_agent_tool": true,
+    "ai_vector_store_output": false,
+    "supplyData_implementation": false,
+    "returned_retrieval_shape": "{context: contentTexts}; score and metadata not retained",
+    "package_node_sha256": "97f21c5aa8799f003dbd2a451570ada4bd99dded0ab0099a9b259825fe6c42e2",
+    "pinned_registry_source": "https://registry.npmjs.org/@llamaindex%2Fn8n-nodes-llamacloud/6.7.2",
+    "pinned_tarball": "https://registry.npmjs.org/@llamaindex/n8n-nodes-llamacloud/-/n8n-nodes-llamacloud-6.7.2.tgz",
+    "matches_previously_inspected_package_reference": true,
+    "native_vector_tool": "Vector Store Question Answer Tool",
+    "vector_tool_parameters": [
+      "Description of Data",
+      "Limit (topK)"
+    ],
+    "vector_tool_required_inputs": [
+      "Vector Store",
+      "Model"
+    ],
+    "vector_store_port_search_llama": "No results for Llama",
+    "available_vector_stores": [
+      "Simple",
+      "Azure AI Search",
+      "Chroma",
+      "Databricks",
+      "Milvus",
+      "MongoDB Atlas",
+      "Oracle Database",
+      "Pinecone",
+      "Postgres PGVector",
+      "Qdrant",
+      "Redis",
+      "Supabase",
+      "Weaviate",
+      "Zep"
+    ],
+    "conclusion": "No supported installed route demonstrated that combines existing LlamaCloud index, native Vector Store tool port and visible enforceable Minimum Score. Native LlamaParse tool is possible but is not literal equivalence and loses score metadata. HTTP adapter remains explicitly an adaptation. Not a claim of impossibility across future versions/custom integrations."
+  },
+  "telegram": {
+    "chrome": "web.telegram.org/a/ shows Log in to Telegram by QR Code",
+    "firefox": "web.telegram.org/k/ shows Log in by QR Code, phone and passkey options",
+    "native_app_in_enabled_inventory": false,
+    "incoming_voice_test_possible_now": false,
+    "external_dependency": "User signs in to Telegram and provides genuine incoming voice test; no login performed or fabricated update"
+  },
+  "gateway": {
+    "ui": "https://app.n8n.cloud/manage/gateway",
+    "ui_updated_local": "2026-11-26 05:55",
+    "range": "Last 7 days",
+    "group_options": [
+      "Total",
+      "By model",
+      "By workflow"
+    ],
+    "account_drawn_usd_display": 0.44,
+    "evaluation_workflow_drawn_usd_display": 0.16,
+    "display_precision": "two decimal places",
+    "official_ten_run_charge_usd": null,
+    "reason": "Workflow aggregate also includes development execution documented in module8/development-instrumentation.json (5019 tokens, same workflow 5UvufWORP48dwMtT). No execution-level breakdown or A/B split in this view. Rounded aggregate cannot be assigned to the ten official runs.",
+    "retail_estimate_unchanged_usd": 0.14656,
+    "auto_top_up": "off; unchanged"
+  },
+  "inspection_fixture": {
+    "workflow_id": "WolSYWfiCpkKCMaM",
+    "title": "My workflow 3",
+    "executed": false,
+    "archived": true,
+    "archive_toast_observed": true
+  },
+  "resolved_items": [],
+  "remaining_external_dependencies": [
+    "Supported LlamaCloud vector-store integration exposing/retaining score and threshold, or explicit instructor disposition on functional adapter",
+    "Telegram user login and genuine voice input",
+    "Execution-level Gateway accounting if actual official-run charges are required"
+  ]
+}
