@@ -1,0 +1,36 @@
+{
+  "workflow_id": "Z5SydQJodOxB85co",
+  "manager_execution_id": "469",
+  "evidence_type": "transcribed from live UI output; not raw execution export",
+  "test": "synthetic-components-first-attempt",
+  "transcript": "¿Cuánto cuesta el manicure clásico de estética aurora y cuánto dura?",
+  "manager_status": "success",
+  "manager_output": "La información proporcionada sobre el costo y duración del manicure clásico en Estética Aurora no tiene soporte en la evidencia disponible. Por favor, revisa los datos y proporciona la información necesaria para confirmar los detalles.",
+  "manager_evidence": [
+    {
+      "source_id": "Aurora/Base/0",
+      "source_kind": "aurora_sheet",
+      "text": "\"\"",
+      "section": "Base",
+      "page_start": null,
+      "page_end": null,
+      "score": null,
+      "source_version": "M1"
+    }
+  ],
+  "spoken_text": "La consulta requiere revisión humana. No se realizó ninguna acción externa.",
+  "characters": 75,
+  "audio_generated": true,
+  "audio_bytes": 82798,
+  "elapsed_ms": 13465,
+  "whisper_duration_ms": 2192,
+  "manager_duration_ms": 9525,
+  "delivery_preparation_duration_ms": 851,
+  "tts_duration_ms": 799,
+  "telegram_messages_sent": 0,
+  "telegram_get_file_exercised": false,
+  "webhook_registered": false,
+  "factual_pass": false,
+  "cost": null,
+  "diagnosis": "Hosted M6 Sheets tool documentId remained REPLACE_AURORA_SHEET_ID. Existing evidence adapter accepted serialized empty observation as evidence. Child histories disabled; full internal writer input unavailable from this run."
+}

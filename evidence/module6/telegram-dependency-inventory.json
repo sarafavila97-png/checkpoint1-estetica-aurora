@@ -1,0 +1,75 @@
+{
+  "credential_name": "Telegram account",
+  "dependency_count": 13,
+  "inspection": "Native n8n credential Used by workflows menu, each pre-existing dependency opened read-only",
+  "preexisting_workflows": [
+    {
+      "workflow_id": "6x3uve8lUA9qpVr5",
+      "description": "identity test",
+      "observed_state": "archived",
+      "observed_nodes": "manual; sendMessage"
+    },
+    {
+      "workflow_id": "ya8KZ9T9kPqfzGNa",
+      "description": "legacy patient record 1",
+      "observed_state": "archived",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "TuPVg7fEkhxCdAoD",
+      "description": "legacy patient record 2",
+      "observed_state": "archived",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "kZxDdsfik5yqdxqr",
+      "description": "legacy patient record 3",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "RwJ8w8Ghob7fv2bY",
+      "description": "legacy patient record 4",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "FnmXD1k2nbmxdVSX",
+      "description": "legacy patient record 5",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "OzFTVInm0UlzRvxV",
+      "description": "legacy patient record 6",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "l0AEEnImFMbBA4Cn",
+      "description": "legacy leads",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Sheets rowAdded; sendMessage"
+    },
+    {
+      "workflow_id": "plBiFVufqruU3ziT",
+      "description": "legacy error handler 1",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Error Trigger; sendMessage"
+    },
+    {
+      "workflow_id": "DpQV75uyEIgzSEjA",
+      "description": "legacy error handler 2",
+      "observed_state": "Publish button; unpublished",
+      "observed_nodes": "Error Trigger; sendMessage"
+    }
+  ],
+  "new_m6_workflows": [
+    "AFmoinq9xcRTcu39",
+    "3mGxNx8WOEkBGk8v",
+    "kA6LHvQrrdSJdOsK"
+  ],
+  "finding": "No pre-existing active Telegram trigger observed among all ten pre-existing saved-credential dependencies. No existing workflow changed or run.",
+  "limit": "Does not query Telegram getWebhookInfo or rule out a webhook outside this n8n account. Native credential lacks supported generic HTTP authentication; native Telegram node lacks that read-only operation.",
+  "authorization": "Existing user authorization to repurpose this bot for the Aurora educational project; no consent inferred from unanswered question."
+}

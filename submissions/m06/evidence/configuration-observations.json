@@ -1,0 +1,19 @@
+{
+  "status": "partial; integration running",
+  "voice_model": "eleven_multilingual_v2",
+  "voice": "Isabela - Spanish Children's Book Narrator",
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "whisper_language": "es",
+  "input_binary_field": "data",
+  "history_settings_verified_in_exports": true,
+  "telegram_webhook_ownership": "not yet verified",
+  "telegram_native_getWebhookInfo": "not exposed",
+  "credential_http_auth": "TelegramApi credential defines getMe test but no generic authenticate adapter",
+  "sources": [
+    "https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/credentials/TelegramApi.credentials.ts",
+    "https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Telegram/Telegram.node.ts",
+    "https://registry.npmjs.org/@elevenlabs/n8n-nodes-elevenlabs/0.2.2"
+  ],
+  "scope": "No claims of completed live Telegram round trip or secure erasure of provider infrastructure."
+}

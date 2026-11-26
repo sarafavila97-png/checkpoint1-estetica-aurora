@@ -1,0 +1,263 @@
+{
+  "name": "Aurora M6 - Transcripcion aislada",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "request",
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "id": "2e1b9300-a447-4b3f-9669-c549cc831918",
+      "name": "Entrada",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const q=$input.first().json.request;if(!q||!/^telegram:[0-9]+$/.test(q.request_id)||q.chat_id!=='REPLACE_TELEGRAM_CHAT_ID'||typeof q.file_id!=='string'||!q.file_id.trim())throw Error('INVALID_AUDIO_REQUEST');return [{json:{request_id:q.request_id,chat_id:q.chat_id,file_id:q.file_id}}];"
+      },
+      "id": "6b96a03c-90d0-4190-8932-9fca7138e573",
+      "name": "Validar solicitud audio",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.file_id }}",
+        "additionalFields": {}
+      },
+      "id": "9768644b-a598-4a78-88cf-f3efbd04e433",
+      "name": "Get File",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        480,
+        0
+      ],
+      "webhookId": "c921331f-a67b-4788-b3d7-f712506bc907",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Binario disponible",
+              "leftValue": "={{ !$json.error && !!$binary?.data }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "3f311f62-eb3b-460b-bccd-55c50597642b",
+      "name": "Binario disponible",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {
+          "language": "es"
+        }
+      },
+      "id": "ded7e796-5f37-4fdf-8f15-737e74e3f65e",
+      "name": "Whisper es",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2,
+      "position": [
+        960,
+        0
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Transcripcion valida",
+              "leftValue": "={{ !$json.error && typeof $json.text === \"string\" && $json.text.trim().length > 0 }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "83125539-7abe-4d97-acf1-333238ab5832",
+      "name": "Transcripcion valida",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "'use strict';\n\n// Academic demo limits, not provider limits. Caller checks update_id in the\n// durable receipt ledger before download and owns the Telegram webhook.\nfunction voiceInput(update, allowedChatIds) {\n  const fail = reason => ({ok:false,reason});\n  const chatId=update?.message?.chat?.id;\n  if (!Array.isArray(allowedChatIds) || !Number.isSafeInteger(chatId) ||\n      !allowedChatIds.map(String).includes(String(chatId))) return fail('CHAT_NOT_ALLOWED');\n  if (!Number.isSafeInteger(update.update_id) || update.update_id < 0) return fail('INVALID_UPDATE_ID');\n  const v=update.message.voice;\n  if (!v || typeof v.file_id !== 'string' || !v.file_id.trim()) return fail('MISSING_VOICE');\n  if (typeof v.duration !== 'number' || !Number.isFinite(v.duration) || v.duration <= 0 || v.duration > 30 ||\n      !Number.isSafeInteger(v.file_size) || v.file_size <= 0 || v.file_size > 5*1024*1024) return fail('AUDIO_LIMIT_OR_UNKNOWN_SIZE');\n  return {ok:true,update_id:update.update_id,chat_id:String(chatId),file_id:v.file_id};\n}\n\nfunction transcriptText(result) {\n  if (!result || result.error || typeof result.text !== 'string' || !result.text.trim()) {\n    return {ok:false,reason:'EMPTY_OR_FAILED_TRANSCRIPTION'};\n  }\n  // Return only text; never forward a provider response or attached binary.\n  return {ok:true,text:result.text.trim()};\n}\n\nfunction speechText(value) {\n  const fail=reason=>({ok:false,reason});\n  if (typeof value !== 'string' || !value.trim()) return fail('EMPTY_SPEECH');\n  const text=value.trim(),characters=Array.from(text).length;\n  if (characters>200) return fail('SPEECH_TOO_LONG');\n  if (/[\\r\\n]/.test(text) || /(?:https?:\\/\\/|www\\.)/i.test(text) ||\n      /(?:^|\\s)[a-z0-9-]+\\.[a-z]{2,63}(?:\\b|\\/)/i.test(text) ||\n      /[*_`#\\[\\]<>]/.test(text) || /^(?:[-+•‣▪]|\\d+[.)])\\s*/u.test(text) ||\n      /\\p{Extended_Pictographic}|\\p{Regional_Indicator}|[0-9#*]\\uFE0F?\\u20E3/u.test(text)) {\n    return fail('SPEECH_FORMAT_FORBIDDEN');\n  }\n  // Do not truncate: the caller may perform one bounded rewrite and revalidate.\n  return {ok:true,text,characters};\n}\n\n\nconst r=transcriptText($input.first().json),q=$('Validar solicitud audio').first().json;return [{json:{ok:r.ok,request_id:q.request_id,chat_id:q.chat_id,text:r.text}}];"
+      },
+      "id": "60da6b52-a269-4001-a151-38b4fd63deed",
+      "name": "Solo texto",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const q=$('Validar solicitud audio').first().json;return [{json:{ok:false,request_id:q.request_id,chat_id:q.chat_id,reason:'AUDIO_OR_TRANSCRIPTION_FAILED',fallback:'No pude transcribir el audio. Escribe tu consulta en texto.'}}];"
+      },
+      "id": "19015eb1-3385-465e-890a-a4b55072cf04",
+      "name": "Contingencia transcripcion",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        352
+      ]
+    }
+  ],
+  "connections": {
+    "Entrada": {
+      "main": [
+        [
+          {
+            "node": "Validar solicitud audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar solicitud audio": {
+      "main": [
+        [
+          {
+            "node": "Get File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get File": {
+      "main": [
+        [
+          {
+            "node": "Binario disponible",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Binario disponible": {
+      "main": [
+        [
+          {
+            "node": "Whisper es",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Contingencia transcripcion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Whisper es": {
+      "main": [
+        [
+          {
+            "node": "Transcripcion valida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcripcion valida": {
+      "main": [
+        [
+          {
+            "node": "Solo texto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Contingencia transcripcion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveExecutionProgress": false,
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 180,
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {}
+}

@@ -1,0 +1,23 @@
+{
+  "workflow_id": "VIJoQ3RlXRXjfYyM",
+  "evidence_type": "transcribed from live UI; evidence excerpt display truncated",
+  "request_id": "telegram:600002",
+  "manager_status": "success",
+  "answer": "El manicure clásico en Estética Aurora cuesta 180 MXN y dura aproximadamente 40 minutos. Recuerda que esta información es parte de un negocio ficticio para práctica académica.",
+  "spoken_text": "El manicure clásico en Estética Aurora cuesta 180 MXN y dura aproximadamente 40 minutos. Recuerda que esta información es parte de un negocio ficticio para práctica académica.",
+  "characters": 175,
+  "delivery": "dry_run",
+  "passed": true,
+  "actual_source_id": "Aurora/Base/current",
+  "visible_source_excerpt": "Real sheet rows with clave, informacion, precio_mxn and duracion_min; full evidence not copied from truncated UI",
+  "whisper_calls": 0,
+  "tts_calls": 0,
+  "telegram_messages_sent": 0,
+  "latency_ms": null,
+  "cost": null,
+  "fixes": [
+    "Resolved Sheets document ID before import",
+    "Reject empty/wrong-tool/malformed observations before WorkerResult success",
+    "Reject unresolved hosted operational placeholders before export sanitization"
+  ]
+}

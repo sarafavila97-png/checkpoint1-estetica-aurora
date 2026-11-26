@@ -1,0 +1,44 @@
+[
+  {
+    "file": "workflows/module6/voice_transcribe.json",
+    "hosted_id": "AFmoinq9xcRTcu39",
+    "nodes": 8,
+    "sha256": "caa9bb3971ceda1f2e398c9862ce5bc0aa59b7dff334ae1f0211ce9dca88f842",
+    "verification": "exact sanitized hosted snapshot with documented native-default equivalence"
+  },
+  {
+    "file": "workflows/module6/telegram_delivery.json",
+    "hosted_id": "3mGxNx8WOEkBGk8v",
+    "nodes": 15,
+    "sha256": "05efbef47b335c392b420180d8b016ee45878d13921a1180030d68bb334e6f85",
+    "verification": "exact sanitized hosted snapshot with documented native-default equivalence"
+  },
+  {
+    "file": "workflows/module6/aurora_knowledge.json",
+    "hosted_id": "dhDOAG9caOclHlaE",
+    "nodes": 7,
+    "sha256": "689add12e18475cd8af4a5c756fc2716a4478b584bd38773ef0acc1c19a926db",
+    "verification": "exact sanitized hosted snapshot with documented native-default equivalence"
+  },
+  {
+    "file": "workflows/module6/outer_agent_knowledge.json",
+    "hosted_id": "0hOtwSy9b49H530u",
+    "nodes": 7,
+    "sha256": "f27cfd44c16748277a5e57bb1c0569d54f31c4bb47b8286f3ba73aafcef3e17c",
+    "verification": "exact sanitized hosted snapshot with documented native-default equivalence"
+  },
+  {
+    "file": "workflows/module6/aurora_manager.json",
+    "hosted_id": "MwyGo8LnYKZ8jXo8",
+    "nodes": 48,
+    "sha256": "f0825b98f9834ecf8c5b1f69010d4bed2a8e1457bda9495f8da27d8428d24fc5",
+    "verification": "exact sanitized hosted snapshot with documented native-default equivalence"
+  },
+  {
+    "file": "workflows/module6/telegram_voice.json",
+    "hosted_id": "kA6LHvQrrdSJdOsK",
+    "nodes": 22,
+    "sha256": "7806deaad5cd23226432c1d1c74b2850227fff6512b0994edf1cf09a1fcee378",
+    "verification": "exact sanitized hosted snapshot with documented native-default equivalence"
+  }
+]

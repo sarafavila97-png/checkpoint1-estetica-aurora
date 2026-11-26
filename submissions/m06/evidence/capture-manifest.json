@@ -1,0 +1,62 @@
+[
+  {
+    "category": "ingress",
+    "file": "evidence/module6/screenshots/telegram-ingress.png",
+    "title": "Entrada Telegram y delegación",
+    "caption": "Canvas auténtico de la entrada. El recibo se reserva antes de descargar audio y se consulta el manager evolucionado. El flujo permanece inactivo; esta captura no prueba una llegada real."
+  },
+  {
+    "category": "transcription",
+    "file": "evidence/module6/screenshots/transcription-canvas.png",
+    "title": "Descarga y transcripción aisladas",
+    "caption": "El hijo separa Get File, verificación del binario, Whisper y contingencia. Sólo devuelve texto al manager."
+  },
+  {
+    "category": "whisper",
+    "file": "evidence/module6/screenshots/whisper-data-es.png",
+    "title": "Whisper: data y es",
+    "caption": "Configuración nativa de transcripción. Input Data Field Name es data y Language of the Audio File es es."
+  },
+  {
+    "category": "guard",
+    "file": "evidence/module6/screenshots/transcript-guard.png",
+    "title": "Contingencia inmediatamente después de Whisper",
+    "caption": "El IF exige ausencia de error y texto no vacío. Una condición falsa se desvía sin continuar hacia el agente ni la síntesis."
+  },
+  {
+    "category": "agent",
+    "file": "evidence/module6/screenshots/native-agent.png",
+    "title": "Tools Agent nativo",
+    "caption": "Agente evolucionado con modelo y herramienta lateral. El contrato y el System Message íntegro se conservan en la sección de texto."
+  },
+  {
+    "category": "agent",
+    "file": "evidence/module6/screenshots/agent-system-prompt.png",
+    "title": "System Message y límite de voz",
+    "caption": "Captura del prompt configurado, incluida la regla de máximo 200 caracteres para Telegram, sin URL, Markdown, viñetas ni emojis."
+  },
+  {
+    "category": "tts",
+    "file": "evidence/module6/screenshots/elevenlabs-settings.png",
+    "title": "ElevenLabs: modelo y estabilidad",
+    "caption": "Configuración nativa observada: Multilingual v2 y estabilidad 0.5. Se usa el texto validado antes de generar el binario de audio."
+  },
+  {
+    "category": "delivery",
+    "file": "evidence/module6/screenshots/delivery-canvas.png",
+    "title": "Validación y entrega de audio",
+    "caption": "El canvas valida el texto, limita una eventual compactación y dirige el binario de ElevenLabs a Send Audio. El modo de prueba puede terminar sin sintetizar ni enviar."
+  },
+  {
+    "category": "settings",
+    "file": "evidence/module6/screenshots/no-history-settings.png",
+    "title": "Historial de ejecuciones desactivado",
+    "caption": "Captura auténtica de Settings. La verificación de las seis exportaciones comprueba además los indicadores de almacenamiento manual y de progreso."
+  },
+  {
+    "category": "manager",
+    "file": "evidence/module6/screenshots/manager-canvas.png",
+    "title": "Manager evolucionado del módulo 6",
+    "caption": "Vista completa del manager delegado de 48 nodos. Integra enrutamiento, memoria y trabajadores; esta captura documenta configuración, no demuestra el recorrido entrante de voz."
+  }
+]
