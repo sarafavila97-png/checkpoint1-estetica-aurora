@@ -1,0 +1,198 @@
+{
+  "name": "Aurora M4 - Revision Slack preparada",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "request",
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "id": "5a218c57-aa42-4833-81a8-5ff7ec83088a",
+      "name": "Solicitud revision",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "request_id",
+              "name": "request_id",
+              "value": "={{ (()=>{// Deterministic boundary checks; business intent remains the manager's job.\nfunction headersOf(m) {\n  const out={};\n  for(const source of [m.payload?.headers,m.headers]) {\n    const pairs=Array.isArray(source)?source.map(h=>[h.name,h.value]):Object.entries(source||{});\n    for(const [k,v] of pairs)out[String(k).toLowerCase()]=String(v??'');\n  }\n  return out;\n}\nfunction senderValue(m){const h=headersOf(m);const f=m.from??m.From??h.from??'';return typeof f==='object'?String(f.text??f.value?.[0]?.address??''):String(f);}\nfunction allowInbound(m) {\n  const h=headersOf(m),subject=String(m.subject??m.Subject??h.subject??'');\n  return !(h['auto-submitted']&&h['auto-submitted'].trim().toLowerCase()!=='no') &&\n    !('x-autoreply' in h) && !('x-autorespond' in h) &&\n    !/\\b(bulk|list|junk)\\b/i.test(h.precedence||'') &&\n    !/(no[._-]?reply|mailer-daemon)/i.test(senderValue(m)) &&\n    !/(auto[ -]?reply|out of office|undeliverable)/i.test(subject);\n}\nfunction parseSender(raw) {\n  if(/[\\r\\n,;]/.test(raw))throw Error('INVALID_SENDER');\n  const match=raw.trim().match(/^(?:([^<>]*)<([^<>]+)>|([^<>\\s]+))$/);\n  if(!match)throw Error('INVALID_SENDER');\n  const email=(match[2]||match[3]).trim().toLowerCase();\n  if(!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?\\.[a-z]{2,}$/i.test(email))throw Error('INVALID_SENDER');\n  return {email,name:(match[1]||'').trim().replace(/^\"|\"$/g,'').slice(0,100)};\n}\nfunction htmlText(s){return String(s).replace(/<(script|style)\\b[^>]*>[\\s\\S]*?<\\/\\1\\s*>/gi,'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|lt|gt|quot|apos|nbsp);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'\"','&apos;':\"'\",'&nbsp;':' '}[x])).replace(/\\s+/g,' ').trim();}\nfunction cleanMail(m) {\n  if(!allowInbound(m))throw Error('AUTOMATIC_MESSAGE_BLOCKED');\n  const sender=parseSender(senderValue(m)),h=headersOf(m);\n  const message_id=String(m.id??m.message_id??''),thread_id=String(m.threadId??m.thread_id??'');\n  if(!message_id||!thread_id||/[\\r\\n]/.test(message_id+thread_id))throw Error('MISSING_MAIL_ID');\n  const body=m.text??m.textPlain??m.BodyText??null;\n  return {From:sender.email,Subject:String(m.subject??m.Subject??h.subject??'').replace(/[\\r\\n]/g,' ').slice(0,300),BodyText:Array.from(body===null?htmlText(m.html??''):String(body)).slice(0,4000).join(''),message_id,thread_id,display_name:sender.name||String(m.display_name||'').slice(0,100)};\n}\nfunction crmPlan(email,displayName,rows) {\n  email=parseSender(email).email;\n  if(!Array.isArray(rows)||rows.length>1)throw Error('AMBIGUOUS_CONTACT');\n  if(rows.length===0)return {action:'create',email,display_name:String(displayName||'').slice(0,100)};\n  const r=rows[0];if(!r.id||String(r.properties?.email||'').toLowerCase()!==email)throw Error('CONTACT_MISMATCH');\n  const name=String(displayName||'').trim().slice(0,100);\n  return {action:name&&name!==r.properties?.firstname?'update':'found',contact_id:String(r.id),email,...(name?{display_name:name}:{})};\n}\nfunction receiptDecision(request_id,rows) {\n  if(!/^gmail:[^\\s]+$/.test(request_id)||!Array.isArray(rows)||rows.length>1)throw Error('INVALID_RECEIPT');\n  if(rows.length===0)return {action:'start',request_id};\n  const r=rows[0];if(r.request_id!==request_id)throw Error('RECEIPT_MISMATCH');\n  if(r.status==='completed'&&r.draft_id)return {action:'replay',request_id,draft_id:r.draft_id,contact_id:r.contact_id||null};\n  return {action:'review',request_id,reason:'Existing incomplete receipt; reconcile before retry'};\n}\nfunction reviewPayload(d){return {request_id:String(d.request_id),domain:String(d.domain),status:String(d.status),reason:Array.from(String(d.reason||'')).slice(0,200).join(''),record_reference:d.record_reference?String(d.record_reference):null};}\nfunction draftResult(d){return d&&!d.error&&typeof d.id==='string'&&d.id?{status:'completed',draft_id:d.id,delivery:'borrador_creado'}:{status:'delivery_unknown',draft_id:null,delivery:'requiere_revision'};}\n;return reviewPayload($json.request).request_id;})() }}",
+              "type": "string"
+            },
+            {
+              "id": "domain",
+              "name": "domain",
+              "value": "={{ (()=>{// Deterministic boundary checks; business intent remains the manager's job.\nfunction headersOf(m) {\n  const out={};\n  for(const source of [m.payload?.headers,m.headers]) {\n    const pairs=Array.isArray(source)?source.map(h=>[h.name,h.value]):Object.entries(source||{});\n    for(const [k,v] of pairs)out[String(k).toLowerCase()]=String(v??'');\n  }\n  return out;\n}\nfunction senderValue(m){const h=headersOf(m);const f=m.from??m.From??h.from??'';return typeof f==='object'?String(f.text??f.value?.[0]?.address??''):String(f);}\nfunction allowInbound(m) {\n  const h=headersOf(m),subject=String(m.subject??m.Subject??h.subject??'');\n  return !(h['auto-submitted']&&h['auto-submitted'].trim().toLowerCase()!=='no') &&\n    !('x-autoreply' in h) && !('x-autorespond' in h) &&\n    !/\\b(bulk|list|junk)\\b/i.test(h.precedence||'') &&\n    !/(no[._-]?reply|mailer-daemon)/i.test(senderValue(m)) &&\n    !/(auto[ -]?reply|out of office|undeliverable)/i.test(subject);\n}\nfunction parseSender(raw) {\n  if(/[\\r\\n,;]/.test(raw))throw Error('INVALID_SENDER');\n  const match=raw.trim().match(/^(?:([^<>]*)<([^<>]+)>|([^<>\\s]+))$/);\n  if(!match)throw Error('INVALID_SENDER');\n  const email=(match[2]||match[3]).trim().toLowerCase();\n  if(!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?\\.[a-z]{2,}$/i.test(email))throw Error('INVALID_SENDER');\n  return {email,name:(match[1]||'').trim().replace(/^\"|\"$/g,'').slice(0,100)};\n}\nfunction htmlText(s){return String(s).replace(/<(script|style)\\b[^>]*>[\\s\\S]*?<\\/\\1\\s*>/gi,'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|lt|gt|quot|apos|nbsp);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'\"','&apos;':\"'\",'&nbsp;':' '}[x])).replace(/\\s+/g,' ').trim();}\nfunction cleanMail(m) {\n  if(!allowInbound(m))throw Error('AUTOMATIC_MESSAGE_BLOCKED');\n  const sender=parseSender(senderValue(m)),h=headersOf(m);\n  const message_id=String(m.id??m.message_id??''),thread_id=String(m.threadId??m.thread_id??'');\n  if(!message_id||!thread_id||/[\\r\\n]/.test(message_id+thread_id))throw Error('MISSING_MAIL_ID');\n  const body=m.text??m.textPlain??m.BodyText??null;\n  return {From:sender.email,Subject:String(m.subject??m.Subject??h.subject??'').replace(/[\\r\\n]/g,' ').slice(0,300),BodyText:Array.from(body===null?htmlText(m.html??''):String(body)).slice(0,4000).join(''),message_id,thread_id,display_name:sender.name||String(m.display_name||'').slice(0,100)};\n}\nfunction crmPlan(email,displayName,rows) {\n  email=parseSender(email).email;\n  if(!Array.isArray(rows)||rows.length>1)throw Error('AMBIGUOUS_CONTACT');\n  if(rows.length===0)return {action:'create',email,display_name:String(displayName||'').slice(0,100)};\n  const r=rows[0];if(!r.id||String(r.properties?.email||'').toLowerCase()!==email)throw Error('CONTACT_MISMATCH');\n  const name=String(displayName||'').trim().slice(0,100);\n  return {action:name&&name!==r.properties?.firstname?'update':'found',contact_id:String(r.id),email,...(name?{display_name:name}:{})};\n}\nfunction receiptDecision(request_id,rows) {\n  if(!/^gmail:[^\\s]+$/.test(request_id)||!Array.isArray(rows)||rows.length>1)throw Error('INVALID_RECEIPT');\n  if(rows.length===0)return {action:'start',request_id};\n  const r=rows[0];if(r.request_id!==request_id)throw Error('RECEIPT_MISMATCH');\n  if(r.status==='completed'&&r.draft_id)return {action:'replay',request_id,draft_id:r.draft_id,contact_id:r.contact_id||null};\n  return {action:'review',request_id,reason:'Existing incomplete receipt; reconcile before retry'};\n}\nfunction reviewPayload(d){return {request_id:String(d.request_id),domain:String(d.domain),status:String(d.status),reason:Array.from(String(d.reason||'')).slice(0,200).join(''),record_reference:d.record_reference?String(d.record_reference):null};}\nfunction draftResult(d){return d&&!d.error&&typeof d.id==='string'&&d.id?{status:'completed',draft_id:d.id,delivery:'borrador_creado'}:{status:'delivery_unknown',draft_id:null,delivery:'requiere_revision'};}\n;return reviewPayload($json.request).domain;})() }}",
+              "type": "string"
+            },
+            {
+              "id": "status",
+              "name": "status",
+              "value": "={{ (()=>{// Deterministic boundary checks; business intent remains the manager's job.\nfunction headersOf(m) {\n  const out={};\n  for(const source of [m.payload?.headers,m.headers]) {\n    const pairs=Array.isArray(source)?source.map(h=>[h.name,h.value]):Object.entries(source||{});\n    for(const [k,v] of pairs)out[String(k).toLowerCase()]=String(v??'');\n  }\n  return out;\n}\nfunction senderValue(m){const h=headersOf(m);const f=m.from??m.From??h.from??'';return typeof f==='object'?String(f.text??f.value?.[0]?.address??''):String(f);}\nfunction allowInbound(m) {\n  const h=headersOf(m),subject=String(m.subject??m.Subject??h.subject??'');\n  return !(h['auto-submitted']&&h['auto-submitted'].trim().toLowerCase()!=='no') &&\n    !('x-autoreply' in h) && !('x-autorespond' in h) &&\n    !/\\b(bulk|list|junk)\\b/i.test(h.precedence||'') &&\n    !/(no[._-]?reply|mailer-daemon)/i.test(senderValue(m)) &&\n    !/(auto[ -]?reply|out of office|undeliverable)/i.test(subject);\n}\nfunction parseSender(raw) {\n  if(/[\\r\\n,;]/.test(raw))throw Error('INVALID_SENDER');\n  const match=raw.trim().match(/^(?:([^<>]*)<([^<>]+)>|([^<>\\s]+))$/);\n  if(!match)throw Error('INVALID_SENDER');\n  const email=(match[2]||match[3]).trim().toLowerCase();\n  if(!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?\\.[a-z]{2,}$/i.test(email))throw Error('INVALID_SENDER');\n  return {email,name:(match[1]||'').trim().replace(/^\"|\"$/g,'').slice(0,100)};\n}\nfunction htmlText(s){return String(s).replace(/<(script|style)\\b[^>]*>[\\s\\S]*?<\\/\\1\\s*>/gi,'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|lt|gt|quot|apos|nbsp);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'\"','&apos;':\"'\",'&nbsp;':' '}[x])).replace(/\\s+/g,' ').trim();}\nfunction cleanMail(m) {\n  if(!allowInbound(m))throw Error('AUTOMATIC_MESSAGE_BLOCKED');\n  const sender=parseSender(senderValue(m)),h=headersOf(m);\n  const message_id=String(m.id??m.message_id??''),thread_id=String(m.threadId??m.thread_id??'');\n  if(!message_id||!thread_id||/[\\r\\n]/.test(message_id+thread_id))throw Error('MISSING_MAIL_ID');\n  const body=m.text??m.textPlain??m.BodyText??null;\n  return {From:sender.email,Subject:String(m.subject??m.Subject??h.subject??'').replace(/[\\r\\n]/g,' ').slice(0,300),BodyText:Array.from(body===null?htmlText(m.html??''):String(body)).slice(0,4000).join(''),message_id,thread_id,display_name:sender.name||String(m.display_name||'').slice(0,100)};\n}\nfunction crmPlan(email,displayName,rows) {\n  email=parseSender(email).email;\n  if(!Array.isArray(rows)||rows.length>1)throw Error('AMBIGUOUS_CONTACT');\n  if(rows.length===0)return {action:'create',email,display_name:String(displayName||'').slice(0,100)};\n  const r=rows[0];if(!r.id||String(r.properties?.email||'').toLowerCase()!==email)throw Error('CONTACT_MISMATCH');\n  const name=String(displayName||'').trim().slice(0,100);\n  return {action:name&&name!==r.properties?.firstname?'update':'found',contact_id:String(r.id),email,...(name?{display_name:name}:{})};\n}\nfunction receiptDecision(request_id,rows) {\n  if(!/^gmail:[^\\s]+$/.test(request_id)||!Array.isArray(rows)||rows.length>1)throw Error('INVALID_RECEIPT');\n  if(rows.length===0)return {action:'start',request_id};\n  const r=rows[0];if(r.request_id!==request_id)throw Error('RECEIPT_MISMATCH');\n  if(r.status==='completed'&&r.draft_id)return {action:'replay',request_id,draft_id:r.draft_id,contact_id:r.contact_id||null};\n  return {action:'review',request_id,reason:'Existing incomplete receipt; reconcile before retry'};\n}\nfunction reviewPayload(d){return {request_id:String(d.request_id),domain:String(d.domain),status:String(d.status),reason:Array.from(String(d.reason||'')).slice(0,200).join(''),record_reference:d.record_reference?String(d.record_reference):null};}\nfunction draftResult(d){return d&&!d.error&&typeof d.id==='string'&&d.id?{status:'completed',draft_id:d.id,delivery:'borrador_creado'}:{status:'delivery_unknown',draft_id:null,delivery:'requiere_revision'};}\n;return reviewPayload($json.request).status;})() }}",
+              "type": "string"
+            },
+            {
+              "id": "reason",
+              "name": "reason",
+              "value": "={{ (()=>{// Deterministic boundary checks; business intent remains the manager's job.\nfunction headersOf(m) {\n  const out={};\n  for(const source of [m.payload?.headers,m.headers]) {\n    const pairs=Array.isArray(source)?source.map(h=>[h.name,h.value]):Object.entries(source||{});\n    for(const [k,v] of pairs)out[String(k).toLowerCase()]=String(v??'');\n  }\n  return out;\n}\nfunction senderValue(m){const h=headersOf(m);const f=m.from??m.From??h.from??'';return typeof f==='object'?String(f.text??f.value?.[0]?.address??''):String(f);}\nfunction allowInbound(m) {\n  const h=headersOf(m),subject=String(m.subject??m.Subject??h.subject??'');\n  return !(h['auto-submitted']&&h['auto-submitted'].trim().toLowerCase()!=='no') &&\n    !('x-autoreply' in h) && !('x-autorespond' in h) &&\n    !/\\b(bulk|list|junk)\\b/i.test(h.precedence||'') &&\n    !/(no[._-]?reply|mailer-daemon)/i.test(senderValue(m)) &&\n    !/(auto[ -]?reply|out of office|undeliverable)/i.test(subject);\n}\nfunction parseSender(raw) {\n  if(/[\\r\\n,;]/.test(raw))throw Error('INVALID_SENDER');\n  const match=raw.trim().match(/^(?:([^<>]*)<([^<>]+)>|([^<>\\s]+))$/);\n  if(!match)throw Error('INVALID_SENDER');\n  const email=(match[2]||match[3]).trim().toLowerCase();\n  if(!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?\\.[a-z]{2,}$/i.test(email))throw Error('INVALID_SENDER');\n  return {email,name:(match[1]||'').trim().replace(/^\"|\"$/g,'').slice(0,100)};\n}\nfunction htmlText(s){return String(s).replace(/<(script|style)\\b[^>]*>[\\s\\S]*?<\\/\\1\\s*>/gi,'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|lt|gt|quot|apos|nbsp);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'\"','&apos;':\"'\",'&nbsp;':' '}[x])).replace(/\\s+/g,' ').trim();}\nfunction cleanMail(m) {\n  if(!allowInbound(m))throw Error('AUTOMATIC_MESSAGE_BLOCKED');\n  const sender=parseSender(senderValue(m)),h=headersOf(m);\n  const message_id=String(m.id??m.message_id??''),thread_id=String(m.threadId??m.thread_id??'');\n  if(!message_id||!thread_id||/[\\r\\n]/.test(message_id+thread_id))throw Error('MISSING_MAIL_ID');\n  const body=m.text??m.textPlain??m.BodyText??null;\n  return {From:sender.email,Subject:String(m.subject??m.Subject??h.subject??'').replace(/[\\r\\n]/g,' ').slice(0,300),BodyText:Array.from(body===null?htmlText(m.html??''):String(body)).slice(0,4000).join(''),message_id,thread_id,display_name:sender.name||String(m.display_name||'').slice(0,100)};\n}\nfunction crmPlan(email,displayName,rows) {\n  email=parseSender(email).email;\n  if(!Array.isArray(rows)||rows.length>1)throw Error('AMBIGUOUS_CONTACT');\n  if(rows.length===0)return {action:'create',email,display_name:String(displayName||'').slice(0,100)};\n  const r=rows[0];if(!r.id||String(r.properties?.email||'').toLowerCase()!==email)throw Error('CONTACT_MISMATCH');\n  const name=String(displayName||'').trim().slice(0,100);\n  return {action:name&&name!==r.properties?.firstname?'update':'found',contact_id:String(r.id),email,...(name?{display_name:name}:{})};\n}\nfunction receiptDecision(request_id,rows) {\n  if(!/^gmail:[^\\s]+$/.test(request_id)||!Array.isArray(rows)||rows.length>1)throw Error('INVALID_RECEIPT');\n  if(rows.length===0)return {action:'start',request_id};\n  const r=rows[0];if(r.request_id!==request_id)throw Error('RECEIPT_MISMATCH');\n  if(r.status==='completed'&&r.draft_id)return {action:'replay',request_id,draft_id:r.draft_id,contact_id:r.contact_id||null};\n  return {action:'review',request_id,reason:'Existing incomplete receipt; reconcile before retry'};\n}\nfunction reviewPayload(d){return {request_id:String(d.request_id),domain:String(d.domain),status:String(d.status),reason:Array.from(String(d.reason||'')).slice(0,200).join(''),record_reference:d.record_reference?String(d.record_reference):null};}\nfunction draftResult(d){return d&&!d.error&&typeof d.id==='string'&&d.id?{status:'completed',draft_id:d.id,delivery:'borrador_creado'}:{status:'delivery_unknown',draft_id:null,delivery:'requiere_revision'};}\n;return reviewPayload($json.request).reason;})() }}",
+              "type": "string"
+            },
+            {
+              "id": "record_reference",
+              "name": "record_reference",
+              "value": "={{ (()=>{// Deterministic boundary checks; business intent remains the manager's job.\nfunction headersOf(m) {\n  const out={};\n  for(const source of [m.payload?.headers,m.headers]) {\n    const pairs=Array.isArray(source)?source.map(h=>[h.name,h.value]):Object.entries(source||{});\n    for(const [k,v] of pairs)out[String(k).toLowerCase()]=String(v??'');\n  }\n  return out;\n}\nfunction senderValue(m){const h=headersOf(m);const f=m.from??m.From??h.from??'';return typeof f==='object'?String(f.text??f.value?.[0]?.address??''):String(f);}\nfunction allowInbound(m) {\n  const h=headersOf(m),subject=String(m.subject??m.Subject??h.subject??'');\n  return !(h['auto-submitted']&&h['auto-submitted'].trim().toLowerCase()!=='no') &&\n    !('x-autoreply' in h) && !('x-autorespond' in h) &&\n    !/\\b(bulk|list|junk)\\b/i.test(h.precedence||'') &&\n    !/(no[._-]?reply|mailer-daemon)/i.test(senderValue(m)) &&\n    !/(auto[ -]?reply|out of office|undeliverable)/i.test(subject);\n}\nfunction parseSender(raw) {\n  if(/[\\r\\n,;]/.test(raw))throw Error('INVALID_SENDER');\n  const match=raw.trim().match(/^(?:([^<>]*)<([^<>]+)>|([^<>\\s]+))$/);\n  if(!match)throw Error('INVALID_SENDER');\n  const email=(match[2]||match[3]).trim().toLowerCase();\n  if(!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?\\.[a-z]{2,}$/i.test(email))throw Error('INVALID_SENDER');\n  return {email,name:(match[1]||'').trim().replace(/^\"|\"$/g,'').slice(0,100)};\n}\nfunction htmlText(s){return String(s).replace(/<(script|style)\\b[^>]*>[\\s\\S]*?<\\/\\1\\s*>/gi,'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|lt|gt|quot|apos|nbsp);/g,x=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'\"','&apos;':\"'\",'&nbsp;':' '}[x])).replace(/\\s+/g,' ').trim();}\nfunction cleanMail(m) {\n  if(!allowInbound(m))throw Error('AUTOMATIC_MESSAGE_BLOCKED');\n  const sender=parseSender(senderValue(m)),h=headersOf(m);\n  const message_id=String(m.id??m.message_id??''),thread_id=String(m.threadId??m.thread_id??'');\n  if(!message_id||!thread_id||/[\\r\\n]/.test(message_id+thread_id))throw Error('MISSING_MAIL_ID');\n  const body=m.text??m.textPlain??m.BodyText??null;\n  return {From:sender.email,Subject:String(m.subject??m.Subject??h.subject??'').replace(/[\\r\\n]/g,' ').slice(0,300),BodyText:Array.from(body===null?htmlText(m.html??''):String(body)).slice(0,4000).join(''),message_id,thread_id,display_name:sender.name||String(m.display_name||'').slice(0,100)};\n}\nfunction crmPlan(email,displayName,rows) {\n  email=parseSender(email).email;\n  if(!Array.isArray(rows)||rows.length>1)throw Error('AMBIGUOUS_CONTACT');\n  if(rows.length===0)return {action:'create',email,display_name:String(displayName||'').slice(0,100)};\n  const r=rows[0];if(!r.id||String(r.properties?.email||'').toLowerCase()!==email)throw Error('CONTACT_MISMATCH');\n  const name=String(displayName||'').trim().slice(0,100);\n  return {action:name&&name!==r.properties?.firstname?'update':'found',contact_id:String(r.id),email,...(name?{display_name:name}:{})};\n}\nfunction receiptDecision(request_id,rows) {\n  if(!/^gmail:[^\\s]+$/.test(request_id)||!Array.isArray(rows)||rows.length>1)throw Error('INVALID_RECEIPT');\n  if(rows.length===0)return {action:'start',request_id};\n  const r=rows[0];if(r.request_id!==request_id)throw Error('RECEIPT_MISMATCH');\n  if(r.status==='completed'&&r.draft_id)return {action:'replay',request_id,draft_id:r.draft_id,contact_id:r.contact_id||null};\n  return {action:'review',request_id,reason:'Existing incomplete receipt; reconcile before retry'};\n}\nfunction reviewPayload(d){return {request_id:String(d.request_id),domain:String(d.domain),status:String(d.status),reason:Array.from(String(d.reason||'')).slice(0,200).join(''),record_reference:d.record_reference?String(d.record_reference):null};}\nfunction draftResult(d){return d&&!d.error&&typeof d.id==='string'&&d.id?{status:'completed',draft_id:d.id,delivery:'borrador_creado'}:{status:'delivery_unknown',draft_id:null,delivery:'requiere_revision'};}\n;return reviewPayload($json.request).record_reference;})() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5b92e22e-3474-467b-9ad4-90b15cd2a7ee",
+      "name": "Payload minimo",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        0
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Envio autorizado",
+              "leftValue": "={{ $json.status === 'needs_human' && $json.domain === 'aurora_demo' && /^gmail:[a-zA-Z0-9:_-]{1,100}$/.test($json.request_id) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "276a8ac7-4cca-44e0-9eab-dfef329ff116",
+      "name": "Envio autorizado",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "REPLACE_SLACK_REVIEW_USER_ID",
+          "mode": "id"
+        },
+        "text": "={{ JSON.stringify($json) }}",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "id": "47ef0fbc-3b9f-45a8-8ccb-96bc628f31fe",
+      "name": "Slack revision",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        720,
+        0
+      ],
+      "webhookId": "00282966-119f-410b-8777-f3833ffbacc8",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {},
+      "id": "802e0a09-b226-43c7-a2fc-98d85c9a6222",
+      "name": "Revision preparada sin enviar",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        720,
+        304
+      ]
+    }
+  ],
+  "connections": {
+    "Solicitud revision": {
+      "main": [
+        [
+          {
+            "node": "Payload minimo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Payload minimo": {
+      "main": [
+        [
+          {
+            "node": "Envio autorizado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envio autorizado": {
+      "main": [
+        [
+          {
+            "node": "Slack revision",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Revision preparada sin enviar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 180,
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {}
+}

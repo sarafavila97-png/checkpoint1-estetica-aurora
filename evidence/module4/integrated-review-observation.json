@@ -1,0 +1,24 @@
+{
+  "test_id": "m4-incomplete-receipt-review",
+  "source": "Manual transcription of live final n8n UI; not raw execution export",
+  "workflow_id": "0tFLqzSalaLRtXW6",
+  "processor_id": "wtvU9RXoJigPHsIG",
+  "duration_seconds": 2.959,
+  "pass": true,
+  "result": {
+    "status": "needs_human",
+    "delivery": "sin_envio",
+    "draft_id": null,
+    "notification": {
+      "accepted": true,
+      "delivery_id": "1795686743.288009"
+    }
+  },
+  "request_id": "gmail:m4-incomplete-synthetic-1",
+  "external_messages_sent": 1,
+  "limits": [
+    "Synthetic preexisting processing receipt; not a provider outage injection",
+    "Receipt branch precedes CRM/model/draft by graph; provider call telemetry not collected",
+    "Repeated incomplete receipts can repeat the review alert; no notification exactly-once claim"
+  ]
+}

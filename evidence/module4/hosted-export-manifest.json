@@ -1,0 +1,30 @@
+[
+  {
+    "file": "workflows/module4/crm_contact.json",
+    "sha256": "ddce7896a0d3f2c1cddcacadf619b10e2d440c9828ea713becf97652ebfc48f0",
+    "nodes": 12,
+    "hosted_id": "BjOfx2iRmROGT6Ws",
+    "verification": "Exact sanitized hosted snapshot; generated parameters equivalent under documented default/dead-helper normalization"
+  },
+  {
+    "file": "workflows/module4/gmail_message.json",
+    "sha256": "5f1a2ae20268684536427e925287b778876417ab40a27fde359a87a626a770f2",
+    "nodes": 28,
+    "hosted_id": "wtvU9RXoJigPHsIG",
+    "verification": "Exact sanitized hosted snapshot; generated parameters equivalent under documented default/dead-helper normalization"
+  },
+  {
+    "file": "workflows/module4/gmail_inbox.json",
+    "sha256": "d8fd537315dc621fb8ee6e6d9e08cef702e78dfa8f57803f9f13166489d78d8a",
+    "nodes": 6,
+    "hosted_id": "gXydsp52FaLT7wwi",
+    "verification": "Exact sanitized hosted snapshot; generated parameters equivalent under documented default/dead-helper normalization"
+  },
+  {
+    "file": "workflows/module4/slack_review.json",
+    "sha256": "b7e2d0447939fa3ea2ce5415fe2dc37a48b845c2340efb8fb64640651fb03c4a",
+    "nodes": 5,
+    "hosted_id": "xnsvA3JlPb3MAwIg",
+    "verification": "Exact sanitized hosted snapshot; generated parameters equivalent under documented default/dead-helper normalization"
+  }
+]

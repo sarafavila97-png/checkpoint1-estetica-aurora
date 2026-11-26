@@ -1,0 +1,26 @@
+{
+  "test_id": "m4-slack-private-notice",
+  "workflow_id": "0b2mmFFvR3bYdPbj",
+  "worker_id": "xnsvA3JlPb3MAwIg",
+  "source": "Manual transcription of live n8n final output; not raw export",
+  "provider_accepted": true,
+  "channel": "D0BMV1VK50S",
+  "message_timestamp": "1795686565.042829",
+  "recipient_user": "U0BMT2H2BGW",
+  "request_id": "gmail:m4-review-synthetic-20261126-1",
+  "payload_fields": [
+    "request_id",
+    "domain",
+    "status",
+    "reason",
+    "record_reference"
+  ],
+  "external_messages_sent": 1,
+  "duration_seconds": 2.985,
+  "harness_assertion_pass": false,
+  "harness_defect": "Looked for root ts; native Slack returns message_timestamp and nested message.ts. Actual provider response ok:true. Predicate corrected locally, not rerun to avoid duplicate send.",
+  "limitations": [
+    "Provider acceptance demonstrated; human read receipt not claimed",
+    "Gmail review branch integration pending"
+  ]
+}

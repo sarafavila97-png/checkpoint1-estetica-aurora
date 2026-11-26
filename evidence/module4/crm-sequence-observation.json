@@ -1,0 +1,39 @@
+{
+  "test_id": "m4-crm-create-found-update",
+  "observed_on": "2026-11-26",
+  "source": "Manual transcription of live n8n final result inspected through UI; not a raw execution export",
+  "workflow_id": "gjakzquXdSnpmb8g",
+  "worker_id": "BjOfx2iRmROGT6Ws",
+  "pass": true,
+  "results": [
+    {
+      "ok": true,
+      "status": "success",
+      "request_id": "gmail:m4-crm-sequence-1",
+      "contact_id": "608051415786",
+      "action": "created"
+    },
+    {
+      "ok": true,
+      "status": "success",
+      "request_id": "gmail:m4-crm-sequence-2",
+      "contact_id": "608051415786",
+      "action": "found"
+    },
+    {
+      "ok": true,
+      "status": "success",
+      "request_id": "gmail:m4-crm-sequence-3",
+      "contact_id": "608051415786",
+      "action": "updated"
+    }
+  ],
+  "llm_calls": 0,
+  "external_messages_sent": 0,
+  "limits": [
+    "Synthetic contact only",
+    "Sequential test; no concurrent or atomic deduplication claim",
+    "Inbox receipt ledger not yet integrated",
+    "Conflict/reconciliation and provider failure still pending"
+  ]
+}

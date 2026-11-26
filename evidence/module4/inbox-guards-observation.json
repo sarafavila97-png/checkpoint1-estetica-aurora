@@ -1,0 +1,50 @@
+{
+  "test_id": "m4-inbox-guards",
+  "date": "2026-11-26",
+  "workflow_id": "DfwQ7Sfvk0WYbkKc",
+  "processor_id": "wtvU9RXoJigPHsIG",
+  "source": "Manual transcription of live final UI proof; not raw execution export",
+  "duration_seconds": 3.644,
+  "pass": true,
+  "cases": [
+    {
+      "case_id": "auto-submitted",
+      "status": "blocked",
+      "llm_calls": 0
+    },
+    {
+      "case_id": "autoreply",
+      "status": "blocked",
+      "llm_calls": 0
+    },
+    {
+      "case_id": "precedence",
+      "status": "blocked",
+      "llm_calls": 0
+    },
+    {
+      "case_id": "noreply",
+      "status": "blocked",
+      "llm_calls": 0
+    },
+    {
+      "case_id": "out-of-office",
+      "status": "blocked",
+      "llm_calls": 0
+    },
+    {
+      "case_id": "undeliverable",
+      "status": "blocked",
+      "llm_calls": 0
+    },
+    {
+      "case_id": "invalid-sender",
+      "status": "blocked",
+      "llm_calls": 0
+    }
+  ],
+  "limitations": [
+    "Individual child calls; separate batch test covers recipient/thread isolation"
+  ],
+  "revision": "Re-run after split per-message processor replacement"
+}

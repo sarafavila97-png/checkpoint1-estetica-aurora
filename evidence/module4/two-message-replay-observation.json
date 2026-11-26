@@ -1,0 +1,45 @@
+{
+  "test_id": "m4-two-message-replay",
+  "source": "Manual transcription of live n8n final result inspected through UI; not raw execution export",
+  "workflow_id": "MGJvSKyhscUVGzxo",
+  "worker_id": "wtvU9RXoJigPHsIG",
+  "observed_on": "2026-11-26",
+  "duration_seconds": 2.826,
+  "passed": true,
+  "results": [
+    {
+      "case_id": "A",
+      "request_id": "gmail:m4-batch-v1-A",
+      "actual_recipient": "aurora-m4-batch-a@example.com",
+      "expected_thread": "1a217314ea70db42",
+      "actual_thread": "1a217314ea70db42",
+      "draft_id": "r-940519148886675110",
+      "seed_draft_id": "r-1490429148615161354",
+      "status": "completed",
+      "delivery": "borrador_existente",
+      "pass": true
+    },
+    {
+      "case_id": "B",
+      "request_id": "gmail:m4-batch-v1-B",
+      "actual_recipient": "aurora-m4-batch-b@example.com",
+      "expected_thread": "1a217315053a5544",
+      "actual_thread": "1a217315053a5544",
+      "draft_id": "r6003792018738889973",
+      "seed_draft_id": "r-2606304432703637815",
+      "status": "completed",
+      "delivery": "borrador_existente",
+      "pass": true
+    }
+  ],
+  "external_messages_sent": 0,
+  "limits": [
+    "Sequential replay; not a concurrency or atomicity test",
+    "No provider call-count telemetry; bypass of CRM/LLM is established by the receipt branch graph"
+  ],
+  "post_slack_integration_regression": {
+    "pass": true,
+    "duration_seconds": 2.756,
+    "same_two_draft_ids": true
+  }
+}
