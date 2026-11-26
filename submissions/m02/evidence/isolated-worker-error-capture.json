@@ -1,0 +1,19 @@
+{
+  "test_id": "m2-isolated-writer-fault-capture",
+  "date": "2026-11-26",
+  "workflow_id": "sZmURBzUwrM8NHdJ",
+  "source": "Live UI output in isolated copy of verified M2 writer",
+  "fault": "Prompt expression throws M2_CONTROLLED_WRITER_FAILURE before LLM invocation",
+  "observed": {
+    "status": "error",
+    "result": {
+      "answer": "",
+      "evidence": [],
+      "proposed_action": "review"
+    },
+    "error_code": "WRITER_ERROR"
+  },
+  "original_workflow_modified": false,
+  "capture": "m2-worker-error.png",
+  "limitations": "Isolated worker copy with manual synthetic request; screenshot is not the historical parent execution. Original worker remains unchanged and export parity is verified separately."
+}
