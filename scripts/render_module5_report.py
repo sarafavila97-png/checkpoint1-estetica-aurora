@@ -42,7 +42,13 @@ def render(source_images, prompt_image):
 
     for i, path in enumerate(source_images,1):
         start(f'01 / Fuente documental y parsing — captura {i}')
-        picture(c,path)
+        picture(c,path,270 if i == 1 else 190)
+        if i == 1:
+            para(c,'<b>Introducción — necesidad de RAG.</b> El proceso atiende preguntas de prospectos de Outer Agent sobre servicios, precios y propiedad de los entregables.<br/>'
+                'Un prompt define cómo responder, pero no aporta ni mantiene actualizadas las condiciones específicas de la organización; el modelo no debe inferirlas.<br/>'
+                'RAG recupera los fragmentos pertinentes y permite responder con referencias verificables, o decir «No sé» cuando falta respaldo.<br/>'
+                'La fuente curada de diez páginas reúne servicios, condiciones y preguntas frecuentes con títulos y una tabla, y cita las páginas públicas originales.',
+                40,250,W-80,12)
         y=para(c,'<b>Documento:</b> Outer_Agent_Fuente_Organizacional_v1.pdf, diez páginas, síntesis académica en español de nueve páginas públicas de una organización real. Seleccionado por sus servicios, condiciones publicadas, tablas y preguntas frecuentes. Versión del 25 de noviembre de 2026, pendiente de ratificación comercial del propietario.',40,175,W-80,12)
         para(c,'Captura auténtica de LlamaCloud. El corpus conserva títulos y contenido tabular para recuperar información con páginas verificables. No contiene las preguntas reservadas ni sus respuestas esperadas. La copia del PDF fuente se entrega en source/.',40,y,W-80,12)
 
