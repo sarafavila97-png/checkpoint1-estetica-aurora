@@ -70,3 +70,7 @@ El reporte conserva entradas y resultados de herramientas, no razonamiento inter
 - [FormApp de Google Apps Script](https://developers.google.com/apps-script/reference/forms/form-app).
 - [Activadores instalables de Google Apps Script](https://developers.google.com/apps-script/guides/triggers/installable).
 - [Ejemplos de clase](https://github.com/Carolina053Peke/AI-Automation-Avanzado).
+
+## Sincronización y validación actual
+
+El 18 de noviembre de 2026 se verificó nuevamente el flujo alojado: ejecución manual **244**, una consulta autónoma a Sheets, respuesta **180 MXN** y ambos envíos Gmail exitosos. Se guardó el timeout de 180 segundos y se sincronizaron los settings del JSON local con un export nuevo. Véase [VALIDACION_MODULO1.md](VALIDACION_MODULO1.md) para la evidencia, sustituciones de entorno, límites y comprobación reproducible de paridad. La evidencia corresponde a la ejecución del 18 de noviembre; no se repitieron envíos para preparar la publicación.
