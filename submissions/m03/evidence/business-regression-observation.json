@@ -1,0 +1,24 @@
+{
+  "evidence_type": "UI transcription of native final table",
+  "workflow_id": "Lr3k9E9KZdNEphig",
+  "duration_seconds": 19.91,
+  "session_id": "aurora_demo:chat:m3-business-G",
+  "record_id": "rec0oVwiBt61ljPS1",
+  "cases": [
+    {
+      "turn": 1,
+      "status": "PASS",
+      "count": 1,
+      "answer_fact": "manicure clásico 180 MXN"
+    },
+    {
+      "turn": 2,
+      "status": "PASS",
+      "count": 2,
+      "answer_fact": "manicure clásico 40 minutos"
+    }
+  ],
+  "assertions": "Both actual manager calls returned success, memory_status saved, nonempty current-turn aurora_sheet evidence, expected counters. Assertions ran inside n8n before final table.",
+  "correction": "Prior preliminary C run lacked source evidence and mentioned 45 minutes. Guard now blocks such business-worker results; fresh G returned 40 minutes with source evidence.",
+  "held_out_test": false
+}

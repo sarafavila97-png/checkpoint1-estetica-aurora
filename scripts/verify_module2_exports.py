@@ -25,7 +25,7 @@ def verify():
     manifest = json.loads((ROOT / 'evidence/module2/hosted-export-manifest.json').read_text())
     for private_name, public_name in PAIRS:
         hosted = json.loads((PRIVATE / private_name).read_text())
-        public_path = ROOT / 'workflows' / public_name
+        public_path = ROOT / 'submissions/m02/workflows' / public_name
         public = json.loads(public_path.read_text())
         assert public_snapshot(hosted) == public, public_name + ': hosted parity mismatch'
         record = next(row for row in manifest if row['file'] == public_name)

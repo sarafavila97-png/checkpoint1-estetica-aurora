@@ -24,7 +24,7 @@ class Contracts(unittest.TestCase):
         r=self.request();r['domain']='mixed';self.assertIn('domain',policy('validateRequest',r)['error'])
 class Bundle(unittest.TestCase):
     def read(self,name):
-        p=ROOT/'workflows'/name
+        p=ROOT/'submissions/m02/workflows'/name
         self.assertTrue(p.exists(),f'missing workflow {name}')
         return json.loads(p.read_text())
     def test_two_workers_have_declared_trigger_and_result(self):
@@ -43,7 +43,7 @@ class DomainEvidence(unittest.TestCase):
         q=Contracts().request();q['evidence']=[{'source_id':'oa','source_kind':'outer_agent_pdf','text':'Training $1500','section':None,'page_start':None,'page_end':None,'score':None,'source_version':'1'}]
         self.assertIn('evidence domain',policy('validateRequest',q).get('error',''))
     def test_payload_projection_native_set(self):
-        w=json.loads((ROOT/'workflows/aurora_manager.json').read_text())
+        w=json.loads((ROOT/'submissions/m02/workflows/aurora_manager.json').read_text())
         for n in w['nodes']:
             if n['name'].startswith('Payload minimo'):
                 self.assertEqual(n['type'],'n8n-nodes-base.set')

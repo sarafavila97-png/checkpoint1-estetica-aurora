@@ -1,0 +1,13 @@
+{
+  "evidence_type": "UI transcription of final n8n table",
+  "workflow_id": "hugyy7FIVEewenTx",
+  "duration_seconds": 4.299,
+  "status": "PASS",
+  "failure": "unavailable Airtable table in isolated read-worker copy",
+  "error_code": "MEMORY_READ_ERROR",
+  "record_id": "recUoeEaOqCUErHMb",
+  "persistent_fields": "unchanged",
+  "llm_calls": 0,
+  "method": "Before/after reads from original healthy worker; fault copy uses unavailable table identifier and same error-normalization/IF code. Original saved workers untouched.",
+  "limitation": "Controlled table-unavailable response, not a real Airtable-wide outage."
+}

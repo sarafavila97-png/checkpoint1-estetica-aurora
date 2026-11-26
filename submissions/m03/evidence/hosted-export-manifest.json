@@ -1,0 +1,30 @@
+[
+  {
+    "file": "aurora_manager.json",
+    "sha256": "67af850dafcb7be95ac6d7d1dea92ff513693a8cca5cdfa318db78b1168103f7",
+    "nodes": 45,
+    "hosted_id": "Dkz9Ehr9wyuzQJVU",
+    "verification": "exact sanitized hosted snapshot; draft parameters equivalent after documented n8n default omission normalization"
+  },
+  {
+    "file": "workers/aurora_knowledge.json",
+    "sha256": "afdf94d8e156eeda181a6623addaa7842b2fcaec210ea9278ff833966e490e28",
+    "nodes": 7,
+    "hosted_id": "AMvTcZLQftqdxg5p",
+    "verification": "exact sanitized hosted snapshot; draft parameters equivalent after documented n8n default omission normalization"
+  },
+  {
+    "file": "workers/memory_read.json",
+    "sha256": "97eb58961ea65d6298651ca5be2c09db99077bbc22298984f107214f78f20938",
+    "nodes": 9,
+    "hosted_id": "oap8j98XvShrjhr7",
+    "verification": "exact sanitized hosted snapshot; draft parameters equivalent after documented n8n default omission normalization"
+  },
+  {
+    "file": "workers/memory_write.json",
+    "sha256": "f3785c385e4f5124801c66c17800e6ebcc12c35b0f100e8a7b2d4638b786feb4",
+    "nodes": 8,
+    "hosted_id": "f9IIvpgiyEKgiYTX",
+    "verification": "exact sanitized hosted snapshot; draft parameters equivalent after documented n8n default omission normalization"
+  }
+]
