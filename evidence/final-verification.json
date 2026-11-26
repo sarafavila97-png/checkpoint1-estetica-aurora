@@ -40,5 +40,11 @@
     "Full production 24-hour Wait not observed; isolated one-minute Wait tested",
     "Historical synthetic audio versions/provider retention not erased",
     "Sequential receipt deduplication, not atomic concurrent guarantee"
-  ]
+  ],
+  "publication": {
+    "branch": "codex/aurora-modules",
+    "implementation_commit": "51881e18ba4c3053648c930f97cbd597fef3ff7d",
+    "remote_ref_verified": true,
+    "main_branch_changed": false
+  }
 }

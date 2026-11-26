@@ -1,6 +1,6 @@
 # Requirements traceability
 
-Review snapshot: 26 November 2026. This is a navigation and gap register, not a blanket compliance claim. Runtime observations are labeled transcriptions where applicable. Later edits must update this register against actual exports, runs and artifacts.
+Review snapshot: 26 November 2026. Implementation commit 51881e18ba4c3053648c930f97cbd597fef3ff7d was pushed and independently matched by git ls-remote on codex/aurora-modules. This is a navigation and gap register, not a blanket compliance claim. Runtime observations are labeled transcriptions where applicable. Later edits must update this register against actual exports, runs and artifacts.
 
 Status: **evidence available** means evidence exists to review; **partial** means work/evidence remains; **pending** means implementation has not been demonstrated. No module is accepted solely because a local test passes.
 
@@ -20,7 +20,7 @@ Baseline checkpoint previously tested and published; preserve baseline and reche
 
 ## Module 2
 
-[Frozen workflows](../submissions/m02/workflows/), [runtime observations](../submissions/m02/evidence/). [Seven-page PDF](../submissions/m02/preentrega_modulo2_adan_sara.pdf) includes authentic internal-worker-error evidence. Visual and factual reviews passed; final publication and cross-module regression remain.
+[Frozen workflows](../submissions/m02/workflows/), [runtime observations](../submissions/m02/evidence/). [Seven-page PDF](../submissions/m02/preentrega_modulo2_adan_sara.pdf) includes authentic internal-worker-error evidence. Visual and factual reviews passed; final local regression and hosted snapshot parity passed. Published on branch codex/aurora-modules.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ Baseline checkpoint previously tested and published; preserve baseline and reche
 
 ## Module 3
 
-[Frozen workflows](../submissions/m03/workflows/), [runtime observations](../submissions/m03/evidence/), [three-page PDF](../submissions/m03/PreEntrega_Modulo3_SaraAdan.pdf). PDF visually and factually reviewed; final publication and cross-module regression remain.
+[Frozen workflows](../submissions/m03/workflows/), [runtime observations](../submissions/m03/evidence/), [three-page PDF](../submissions/m03/PreEntrega_Modulo3_SaraAdan.pdf). PDF visually and factually reviewed; final local regression and hosted snapshot parity passed. Published on branch codex/aurora-modules.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
@@ -49,7 +49,7 @@ Baseline checkpoint previously tested and published; preserve baseline and reche
 
 ## Module 4
 
-[CRM sequence](../evidence/module4/crm-sequence-observation.json) records one contact ID across create/find/update. [Frozen submission](../submissions/m04/) includes inbox guards, receipt replay handling, CRM reconciliation, draft creation and Slack tests. Export parity and credential screenshots reviewed. Publication remains pending; receipt reservations do not provide distributed atomic deduplication.
+[CRM sequence](../evidence/module4/crm-sequence-observation.json) records one contact ID across create/find/update. [Frozen submission](../submissions/m04/) includes inbox guards, receipt replay handling, CRM reconciliation, draft creation and Slack tests. Export parity and credential screenshots reviewed. Published on branch codex/aurora-modules; receipt reservations do not provide distributed atomic deduplication.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
@@ -61,11 +61,11 @@ Baseline checkpoint previously tested and published; preserve baseline and reche
 | M4.06 | Email response uses Create Draft exclusively, preserving human approval before sending. | evidence available |
 | M4.07 | Team payload excludes heavy metadata and binary content. | evidence available |
 | M4.08 | Actual regression tests verify each connector and anti-loop, malformed-input and duplicate-contact guards. | evidence available |
-| M4.09 | Public GitHub contains checkpoint4 export and README with three active credential connections shown; JSON imports without errors. | partial |
+| M4.09 | Public GitHub contains checkpoint4 export and README with three active credential connections shown; JSON imports without errors. | evidence available on codex/aurora-modules; no credentials included |
 
 ## Module 5
 
-[Governance plan](knowledge-governance.md) and [retriever compatibility review](m5-retriever-compatibility-review.md) exist. [Nine-page report](../submissions/m05/PreEntrega_Modulo5_SaraAdan.pdf) is visually and factually reviewed. [Blind evaluation](../evidence/module5/blind-evaluation.json) records 2/5 correct (40%); this is a measured weak baseline, not a passing-quality claim. Three hosted workflow snapshots passed parity verification. Final channel integration and the literal native-node criterion remain unresolved.
+[Governance plan](knowledge-governance.md) and [retriever compatibility review](m5-retriever-compatibility-review.md) exist. [Nine-page report](../submissions/m05/PreEntrega_Modulo5_SaraAdan.pdf) is visually and factually reviewed. [Blind evaluation](../evidence/module5/blind-evaluation.json) records 2/5 correct (40%); this is a measured weak baseline, not a passing-quality claim. Three hosted workflow snapshots passed parity verification. Final channel adapters are integrated in M8; genuine Telegram entry and the literal native-node criterion remain unresolved.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
