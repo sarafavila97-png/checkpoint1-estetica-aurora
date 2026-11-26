@@ -1,11 +1,12 @@
 {
   "module": 6,
-  "status": "partial_runtime_validation",
+  "status": "real_voice_runtime_validated",
   "hosted_exports_verified": 6,
-  "authentic_screenshots": 11,
-  "pdf_pages": 15,
-  "real_incoming_voice_test": false,
+  "authentic_screenshots": 13,
+  "pdf_pages": 17,
+  "real_incoming_voice_test": true,
   "corrupt_audio_runtime_test": true,
   "temporary_synthetic_audio_cleanup": "current fixture and known local audio removed; workflow archived; historical retention not erased",
-  "cost": null
+  "cost": null,
+  "real_incoming_voice_evidence": "evidence/module6/genuine-telegram-runtime.json"
 }

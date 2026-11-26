@@ -1,0 +1,151 @@
+{
+  "scope": "Joined frozen official runs, independent correctness assessment, and UI-transcribed model usage; no new executions.",
+  "source_sha256": {
+    "official-model-usage.json": "a4206fc46cc174f77f20636b84ab4a400d3f8e4e933fd92afcbd14e23888ac24",
+    "official-results.json": "3c7571d1cec0778349eb05d1c01a65ed0da4b47d3638b7c3f271cfeadec83716",
+    "independent-scoring.json": "5bdcf5ae2d5d929493e01fdb4fb4b9b12cdd987d8baa544d2845f6b08cb0d2b2",
+    "independent-cost-check.json": "abaf9f5791fcbb3a6e87a73ac0fec57f954983a1afe6d8bb5931fe0441cc0e93"
+  },
+  "pricing": {
+    "currency": "USD",
+    "input_per_million": "2.50",
+    "output_per_million": "10.00",
+    "basis": "Public GPT-4o retail without cache discount; model calls only"
+  },
+  "rows": [
+    {
+      "case_id": "M8-01",
+      "architecture": "A",
+      "run_id": "494",
+      "correct": true,
+      "elapsed_ms": 8940,
+      "calls": 5,
+      "input_tokens": 5008,
+      "output_tokens": 145,
+      "total_tokens": 5153,
+      "estimated_no_cache_retail_usd": "0.01397",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-01",
+      "architecture": "B",
+      "run_id": "497",
+      "correct": true,
+      "elapsed_ms": 7299,
+      "calls": 5,
+      "input_tokens": 5008,
+      "output_tokens": 145,
+      "total_tokens": 5153,
+      "estimated_no_cache_retail_usd": "0.01397",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-02",
+      "architecture": "A",
+      "run_id": "500",
+      "correct": true,
+      "elapsed_ms": 4172,
+      "calls": 3,
+      "input_tokens": 2117,
+      "output_tokens": 59,
+      "total_tokens": 2176,
+      "estimated_no_cache_retail_usd": "0.0058825",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-02",
+      "architecture": "B",
+      "run_id": "503",
+      "correct": true,
+      "elapsed_ms": 4306,
+      "calls": 3,
+      "input_tokens": 2117,
+      "output_tokens": 59,
+      "total_tokens": 2176,
+      "estimated_no_cache_retail_usd": "0.0058825",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-03",
+      "architecture": "A",
+      "run_id": "506",
+      "correct": true,
+      "elapsed_ms": 8669,
+      "calls": 4,
+      "input_tokens": 7562,
+      "output_tokens": 166,
+      "total_tokens": 7728,
+      "estimated_no_cache_retail_usd": "0.020565",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-03",
+      "architecture": "B",
+      "run_id": "510",
+      "correct": true,
+      "elapsed_ms": 6890,
+      "calls": 4,
+      "input_tokens": 7562,
+      "output_tokens": 166,
+      "total_tokens": 7728,
+      "estimated_no_cache_retail_usd": "0.020565",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-04",
+      "architecture": "A",
+      "run_id": "514",
+      "correct": true,
+      "elapsed_ms": 8028,
+      "calls": 4,
+      "input_tokens": 7587,
+      "output_tokens": 131,
+      "total_tokens": 7718,
+      "estimated_no_cache_retail_usd": "0.0202775",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-04",
+      "architecture": "B",
+      "run_id": "518",
+      "correct": true,
+      "elapsed_ms": 6961,
+      "calls": 4,
+      "input_tokens": 6525,
+      "output_tokens": 102,
+      "total_tokens": 6627,
+      "estimated_no_cache_retail_usd": "0.0173325",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-05",
+      "architecture": "A",
+      "run_id": "522",
+      "correct": true,
+      "elapsed_ms": 7114,
+      "calls": 5,
+      "input_tokens": 5086,
+      "output_tokens": 138,
+      "total_tokens": 5224,
+      "estimated_no_cache_retail_usd": "0.014095",
+      "actual_gateway_cost_usd": null
+    },
+    {
+      "case_id": "M8-05",
+      "architecture": "B",
+      "run_id": "525",
+      "correct": true,
+      "elapsed_ms": 6853,
+      "calls": 5,
+      "input_tokens": 5080,
+      "output_tokens": 132,
+      "total_tokens": 5212,
+      "estimated_no_cache_retail_usd": "0.01402",
+      "actual_gateway_cost_usd": null
+    }
+  ],
+  "total_calls": 42,
+  "total_tokens": 54895,
+  "estimated_no_cache_retail_usd": "0.14656",
+  "actual_gateway_cost_usd": null
+}

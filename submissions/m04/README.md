@@ -45,4 +45,4 @@ La deduplicación demostrada es secuencial. La tabla no ofrece una reserva atóm
 
 La prueba integrada de recibo incompleto no simula una caída real de Gmail/HubSpot. Los caminos de error y reconciliación están implementados y cubiertos localmente; no se afirma haber provocado HTTP 409/429 ni timeout en proveedores reales. Los flujos guardados tienen timeout 180s, historial fallido/exitoso/manual desactivado, invocación restringida al mismo propietario y MCP desactivado. Los arneses sintéticos de prueba no son despliegues de producción.
 
-Estado: implementación y evidencias locales congeladas; publicación GitHub pendiente junto al paquete final. M5, M6 y M8 continúan por separado.
+Implementación y evidencias publicadas en GitHub, rama codex/aurora-modules. Las entregas M5, M6 y M8 documentan las siguientes etapas del proyecto.

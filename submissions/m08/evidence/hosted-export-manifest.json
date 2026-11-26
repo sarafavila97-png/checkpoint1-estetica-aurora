@@ -10,7 +10,7 @@
     "file": "workflows/module8/aurora_manager.json",
     "hosted_id": "CDohMiV8NsPKF2ua",
     "nodes": 92,
-    "sha256": "5b5441ee420fe018cba64ee5085f31510917f1d41ea789e47c872114a3f4a62a",
+    "sha256": "3146736bd286137f049bedc1c0e97bc6b97b13c36a5420c608c928c66c9a2b8a",
     "verified": true
   },
   {
@@ -23,8 +23,8 @@
   {
     "file": "workflows/module8/gmail_message.json",
     "hosted_id": "HN9WViRuCuat7IGF",
-    "nodes": 28,
-    "sha256": "2d53adefd18b754f16a97a714a632964a0120759932bc373efe7f87a5e2219d0",
+    "nodes": 29,
+    "sha256": "b79b43971b2d459aeefa4e83adab258703c79f2f793266f2e24851ece1cf9a23",
     "verified": true
   },
   {
@@ -38,7 +38,7 @@
     "file": "workflows/module8/telegram_voice.json",
     "hosted_id": "FvgWYqbUUnUqt0MY",
     "nodes": 22,
-    "sha256": "f36a88f832e5f1597fafdb4363ac86b36ae900cb3a6f36ce9abb22ff3c3cf03b",
+    "sha256": "a47fba4c1d545a920172ee8f6f44696dcf220679b584be9dda5fc4b960cfec38",
     "verified": true
   }
 ]

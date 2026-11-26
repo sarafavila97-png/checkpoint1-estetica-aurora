@@ -39,3 +39,21 @@ class QualityGraph(unittest.TestCase):
     for port in ports:
      for e in port:self.assertIn(e['node'],names)
   self.assertFalse(any(n['type'] in ['n8n-nodes-base.telegram','n8n-nodes-base.gmail','@elevenlabs/n8n-nodes-elevenlabs.elevenLabs'] for n in w['nodes']))
+
+class GmailEscalationRegression(unittest.TestCase):
+ def test_review_notifies_once_then_waits_without_path_to_draft(self):
+  w=load('gmail_message.json');n={x['name']:x for x in w['nodes']};c=w['connections']
+  self.assertIn('Wait revision Gmail',n)
+  self.assertEqual(n['Wait revision Gmail']['parameters'],{'resume':'timeInterval','amount':24,'unit':'hours'})
+  self.assertEqual(c['Notificar revision Slack']['main'][0][0]['node'],'Wait revision Gmail')
+  self.assertEqual(c['Wait revision Gmail']['main'][0][0]['node'],'Resultado revision')
+  seen=set();pending=['Revisar sin enviar']
+  while pending:
+   name=pending.pop()
+   if name in seen:continue
+   seen.add(name)
+   pending += [e['node'] for ports in c.get(name,{}).values() for port in ports for e in port]
+  self.assertNotIn('Crear borrador',seen)
+  self.assertEqual([x for x in seen if x=='Notificar revision Slack'],['Notificar revision Slack'])
+  self.assertIn("mode:'dry_run'",json.dumps(n['Payload manager']))
+  self.assertFalse(any(x.get('binary') for x in w['nodes']))

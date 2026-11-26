@@ -19,7 +19,7 @@ def chain(name,prompt,x,y):
  node('Modelo '+name,'@n8n/n8n-nodes-langchain.lmChatOpenAi',{'model':{'__rl':True,'value':'gpt-4o','mode':'list','cachedResultName':'gpt-4o'},'options':{'temperature':0,'maxTokens':350,'timeout':45000,'maxRetries':0}},x,y+220,1.2)
  edge('Modelo '+name,name,kind='ai_languageModel')
 # Only this entry resets the counter. Corrections never reconnect here.
-code('Iniciar supervision',"const request=$('Aplicar memoria').first().json.request;return [{json:startReview(request,$input.first().json)}];",200)
+code('Iniciar supervision',"const d=$('Aplicar memoria').first().json;return [{json:startReview(d.request,$input.first().json,{route:$('Validar ruta').first().json.route,memory:d.memory})}];",200)
 for origin in ['Entregar respuesta','Respuesta desde memoria','Fallback humano']:
  c[origin]['main']=[[dict(node='Iniciar supervision',type='main',index=0)]]
 iff('Candidato disponible','={{ $json.decision === null }}',440);edge('Iniciar supervision','Candidato disponible');edge('Candidato disponible','Escalar revision',1)
@@ -29,10 +29,10 @@ for i in range(3):
  code(state,"const s=$input.first().json;return [{json:{...s,needs_compaction:s.request.channel==='telegram'&&!speechText(s.request.candidate).ok}}];",700,y)
  iff(f'Compactar voz {i}','={{ $json.needs_compaction === true }}',940,y)
  edge(state,f'Compactar voz {i}');edge(f'Compactar voz {i}',compact);edge(f'Compactar voz {i}',ready,1)
- chain(compact,(R/'prompts/voice.txt').read_text(),1180,y+350)
- code(f'Validar compacto {i}',f"const s=$('{state}').first().json,d=$input.first().json;const t=d.error?null:d.text;return [{{json:candidateValid(s.request,t)?{{...s,request:{{...s.request,candidate:t}}}}:escalated(s,'COMPACTION_FAILED')}}];",1420,y+350)
+ chain(compact,(R/'prompts/voice.txt').read_text()+' Para Outer Agent reserva 75 caracteres para una cita hablada que añadirá el sistema. Devuelve sólo el cuerpo, sin Fuente.',1180,y+350)
+ code(f'Validar compacto {i}',f"const s=$('{state}').first().json,d=$input.first().json;return [{{json:compactCandidate(s,d)}}];",1420,y+350)
  edge(compact,f'Validar compacto {i}');edge(f'Validar compacto {i}',ready)
- code(ready,"const s=$input.first().json;return [{json:s.decision?.route==='ESCALAR'?s:candidateValid(s.request,s.request.candidate)?s:escalated(s,'CHANNEL_VALIDATION_FAILED')}];",1660,y)
+ code(ready,"const s=finalizeCandidate($input.first().json);return [{json:s.decision?.route==='ESCALAR'?s:candidateValid(s.request,s.request.candidate)&&citationValid(s)?s:escalated(s,'CHANNEL_VALIDATION_FAILED')}];",1660,y)
  iff(f'Apto para juez {i}','={{ $json.decision === null }}',1900,y);edge(ready,f'Apto para juez {i}');edge(f'Apto para juez {i}','Escalar revision',1)
  node(judge,'n8n-nodes-base.executeWorkflow',{'workflowId':{'__rl':True,'value':'REPLACE_SUPERVISOR_WORKFLOW_ID','mode':'id'},'workflowInputs':{'mappingMode':'defineBelow','value':{'request':'={{ $json.request }}'},'matchingColumns':[],'schema':[{'id':'request','displayName':'request','type':'object','required':False,'display':True,'canBeUsedToMatch':True}],'attemptToConvertTypes':False,'convertFieldsToString':False},'options':{'waitForSubWorkflow':True}},2140,y,1.3,onError='continueRegularOutput')
  edge(f'Apto para juez {i}',judge)
@@ -47,7 +47,7 @@ for i in range(3):
   edge(correction,f'Aplicar correccion {i+1}');edge(f'Aplicar correccion {i+1}',f'Estado {i+1}')
  else:edge(switch,'Escalar revision',1)
 edge('Candidato disponible','Estado 0')
-code('Respuesta aprobada M8',"const s=$input.first().json,q=s.request;return [{json:{request_id:q.request_id,status:'success',output:q.candidate,evidence:q.evidence,delivery:'dry_run',quality:{source:'judge',score:s.decision.score,attempt:q.correction_attempt,history:s.history}}}];",3400)
+code('Respuesta aprobada M8',"const s=$input.first().json,q=s.request;return [{json:{request_id:q.request_id,status:'success',output:q.candidate,evidence:q.evidence,...(s.memory_provenance?{memory_provenance:s.memory_provenance}:{}),delivery:'dry_run',quality:{source:'judge',score:s.decision.score,attempt:q.correction_attempt,history:s.history}}}];",3400)
 edge('Respuesta aprobada M8','Preparar cierre')
 code('Escalar revision',"const s=$input.first().json;return [{json:{request:s.request,history:s.history,decision:s.decision,expires_at:new Date(Date.now()+86400000).toISOString()}}];",3400,2400)
 iff('Revision en vivo','={{ $json.request.mode === "live" }}',3640,2400);edge('Escalar revision','Revision en vivo')

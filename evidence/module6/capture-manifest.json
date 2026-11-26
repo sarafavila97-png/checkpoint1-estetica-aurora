@@ -64,5 +64,17 @@
     "file": "evidence/module6/screenshots/corrupt-audio-contingency.png",
     "title": "Contingencia real con audio inválido",
     "caption": "Prueba aislada: Whisper rechazó bytes inválidos y el IF devolvió el texto de contingencia. Sin agente de respuesta, TTS ni envío Telegram. No es llegada genuina por chat."
+  },
+  {
+    "category": "genuine_voice",
+    "file": "evidence/module6/screenshots/genuine-voice-approved.png",
+    "title": "Voz real: respuesta aprobada",
+    "caption": "Nota enviada desde el móvil de Sara. Respuesta de 119 caracteres, juez 5/5 en intento 0."
+  },
+  {
+    "category": "genuine_voice",
+    "file": "evidence/module6/screenshots/genuine-voice-delivered.png",
+    "title": "Voz real: entrega confirmada",
+    "caption": "Solicitud telegram:295998159 completada. Telegram Send Audio devolvió mensaje 91; el cliente mostró el MP3 de 10 segundos."
   }
 ]

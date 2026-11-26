@@ -5,6 +5,11 @@ from verify_module6_exports import params as base_params,sanitized_host
 R=Path(__file__).resolve().parents[1];P=R.parent/'work/implementation-private'
 def params(n):
  p=base_params(n)
+ # n8n editor materializes mapper UI metadata; defineBelow executes value, not matchingColumns.
+ if n['type']=='n8n-nodes-base.executeWorkflow' and p.get('workflowInputs',{}).get('mappingMode')=='defineBelow':
+  m=p['workflowInputs'];m.pop('matchingColumns',None)
+  for f in m.get('schema',[]):
+   f.setdefault('defaultMatch',False);f.setdefault('removed',False)
  if n['type']=='n8n-nodes-base.wait':p.setdefault('resume','timeInterval')
  if n['type']=='n8n-nodes-base.gmail':p.setdefault('operation','create');p.setdefault('emailType','text')
  if n['type']=='n8n-nodes-base.executeWorkflowTrigger':

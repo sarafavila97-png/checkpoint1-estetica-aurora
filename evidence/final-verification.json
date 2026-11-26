@@ -1,7 +1,7 @@
 {
   "date": "2026-11-26",
   "tests": {
-    "passed": 101,
+    "passed": 108,
     "command": "python3 -m unittest discover -s tests -v"
   },
   "hosted_snapshot_parity": {
@@ -25,17 +25,28 @@
   "review": {
     "scope": "local read-only logic, tests, hashes and claims",
     "important_findings": 0,
-    "independent_runtime_replay": false
+    "independent_runtime_replay": false,
+    "status": "Two P2 findings fixed; follow-up caught memory regression, fixed and independently re-reviewed with no further actionable findings"
   },
   "pdf_visual_review": {
     "m8_pages": 15,
     "m8_all_pages": true,
-    "m6_pages": 15,
-    "m6_review": "root reviewed changed text and added capture; remaining capture pages unchanged from earlier review"
+    "m6_pages": 17,
+    "m6_review": "Updated text pages 1\u20134 and new genuine Telegram pages 16\u201317 visually reviewed; prior capture pages unchanged",
+    "m5_updated_pages": [
+      3,
+      4,
+      8
+    ],
+    "m8_updated_cost_table_page": 3,
+    "m8_updated_pages": [
+      2,
+      3,
+      4,
+      5
+    ]
   },
   "limits": [
-    "Telegram genuine incoming voice and reply unobserved; login pending",
-    "M5 literal native Vector Store Retrieve Tool criterion unresolved; blind score 2/5",
     "Actual Gateway charge unknown; M8 retail no-cache estimate only",
     "Full production 24-hour Wait not observed; isolated one-minute Wait tested",
     "Historical synthetic audio versions/provider retention not erased",
@@ -47,5 +58,7 @@
     "remote_ref_verified": true,
     "main_branch_changed": false
   },
-  "remaining_gap_audit": "evidence/remaining-gap-audit.json"
+  "remaining_gap_audit": "evidence/remaining-gap-audit.json",
+  "genuine_voice": "evidence/module6/genuine-telegram-runtime.json",
+  "p2_regressions": "evidence/module8/p2-regression-runtime.json"
 }

@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-26",
+  "scope": "Isolated regression fixtures after P2 fixes; official ten-run experiment unchanged",
+  "citations": {
+    "workflow_id": "UsADV8cvBUTgcaeD",
+    "status": "passed",
+    "channels": [
+      "chat",
+      "telegram"
+    ],
+    "correction_attempt": 1,
+    "source_ids": [
+      "fixture:2"
+    ],
+    "modified_citation_result": "CITATION_VALIDATION_FAILED",
+    "model_calls": 0,
+    "notifications": 0,
+    "delivery": "not_sent",
+    "validated_memory_recall": {
+      "candidate": "Prefieres coral.",
+      "category": "memory_recall",
+      "wrong_session": "MISSING_CITATION",
+      "fabricated_provenance": "MISSING_CITATION",
+      "nonempty_pdf_category": "domain_answer"
+    }
+  },
+  "gmail_wait": {
+    "workflow_id": "a5p0B4g7DZJzYLov",
+    "status": "passed",
+    "configured_test_wait_seconds": 1,
+    "observed_elapsed_ms": 1021,
+    "review_status": "needs_human",
+    "notification_stub_invocations": 1,
+    "real_notifications": 0,
+    "drafts": 0,
+    "delivery": "not_sent",
+    "production_wait_hours": 24
+  },
+  "provenance": "Results observed in n8n native editor; Slack substituted with deterministic stub in Gmail fixture; real Wait node executed",
+  "hosted_parity": "six final workflows passed after sync; manager92/Gmail29"
+}

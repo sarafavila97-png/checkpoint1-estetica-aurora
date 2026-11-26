@@ -274,15 +274,19 @@
           "value": {
             "request": "={{ $('Validar voz').first().json }}"
           },
-          "matchingColumns": [],
+          "matchingColumns": [
+            "request"
+          ],
           "schema": [
             {
               "id": "request",
               "displayName": "request",
-              "type": "object",
               "required": false,
+              "defaultMatch": false,
               "display": true,
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "type": "object",
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -450,15 +454,19 @@
           "value": {
             "request": "={{ $json.request }}"
           },
-          "matchingColumns": [],
+          "matchingColumns": [
+            "request"
+          ],
           "schema": [
             {
               "id": "request",
               "displayName": "request",
-              "type": "object",
               "required": false,
+              "defaultMatch": false,
               "display": true,
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "type": "object",
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,

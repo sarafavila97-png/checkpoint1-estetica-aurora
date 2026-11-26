@@ -19,9 +19,22 @@
   "injected_guard_tests": true,
   "gmail_two_message_regression": true,
   "gmail_sequential_replay": true,
-  "real_incoming_telegram_test": false,
+  "real_incoming_telegram_test": true,
   "active_workflows": false,
   "pdf_pages": 15,
-  "local_tests_passed": 101,
-  "review": "no important actionable findings; local/read-only review"
+  "local_tests_passed": 108,
+  "review": "no important actionable findings; local/read-only review",
+  "official_runs_per_architecture": {
+    "A": 5,
+    "B": 5
+  },
+  "per_run_cost_matrix": "evidence/ab-cost-matrix.json",
+  "per_run_cost_matrix_readable": "ab-cost-matrix.md",
+  "cost_basis": "Observed token usage at public GPT-4o retail rates, USD 2.50/M input and USD 10/M output, without cache discount; model calls only.",
+  "gateway_workflow_aggregate_usd": 0.16,
+  "gateway_workflow_aggregate_scope": "Rounded workflow aggregate includes development; not the charge for the ten official A/B runs.",
+  "frozen_official_results_preserved": true,
+  "module5_blind_baseline_correct": 2,
+  "module5_blind_baseline_cases": 5,
+  "p2_regressions": "evidence/p2-regression-runtime.json"
 }
