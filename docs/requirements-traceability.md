@@ -83,7 +83,7 @@ Additional literal check: original screenshot names **Vector Store Retrieve Tool
 
 ## Module 6
 
-[Local drafts](../drafts/module6/) include native agent voice instructions and six structural tests pass. Transcription and delivery children have been saved in n8n with execution storage disabled. Hosted parity, complete channel integration, actual voice success/failure tests and the report remain pending. Standalone prerequisite tests do not establish this complete pipeline.
+[Six hosted snapshots](../workflows/module6/) and [parity manifest](../evidence/module6/hosted-export-manifest.json) are committed in d64d019. The [14-page PDF](../submissions/m06/PreEntrega_Modulo6_SaraAdan.pdf) includes ten authentic captures and both exact native agent prompts; all pages received visual review. Synthetic transcription and synthesis ran, but the first combined test exposed a Sheets binding failure. The [repaired text regression](../evidence/module6/text-regression-after-binding-fix.json) then returned 180 MXN and 40 minutes. Incoming Telegram voice, corrupt-audio runtime contingency and final temporary-audio disposal remain unverified. The incoming test requires a signed-in Telegram session. These component observations do not prove the full pipeline.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
@@ -94,20 +94,20 @@ Additional literal check: original screenshot names **Vector Store Retrieve Tool
 | M6.05 | Generated binary is mapped to Send Voice or Send Audio on originating messaging channel. | partial |
 | M6.06 | IF/Switch after transcription safely handles corrupt audio or empty transcription. | partial |
 | M6.07 | Successful and failed production executions use Do not save; no audio is persisted in external storage. | partial |
-| M6.08 | Single PDF includes full canvas, Whisper/agent/TTS/contingency settings, retention settings, disposal explanation and exact agent prompt. | pending |
+| M6.08 | Single PDF includes full canvas, Whisper/agent/TTS/contingency settings, retention settings, disposal explanation and exact agent prompt. | evidence available; runtime limits explicit |
 
 ## Module 8
 
-[Metrics calculator](../scripts/report_metrics.py) is tested. No final supervisor runs or ten-run A/B evidence yet.
+[Supervisor and manager snapshots](../workflows/module8/) exist. The [first live development approval](../evidence/module8/development-approval.json) returned the documented price with judge score 5; it is not an official comparison run. Twelve focused graph/supervisor tests pass, including bounded corrections and malformed-output escalation. Actual correction/escalation branches, final channel wiring, ten official A/B runs, dashboard and PDF remain pending. The [metrics calculator](../scripts/report_metrics.py) and [prepared harness review](../evidence/module8/harness-static-review.json) do not replace runtime evidence.
 
 | Gate | Requirement | Current status |
 | --- | --- | --- |
-| M8.01 | Prior modules retained and supervisor implemented as sub-workflow. | pending |
-| M8.02 | Structured output schema enforced and exact judge prompt reproduced in PDF. | pending |
-| M8.03 | Switch has APROBADO, CORREGIR and ESCALAR branches; approval requires factual score at least 4. | pending |
-| M8.04 | Correction passes judge feedback to agent and has bounded attempts ending in escalation. | pending |
+| M8.01 | Prior modules retained and supervisor implemented as sub-workflow. | partial |
+| M8.02 | Structured output schema enforced and exact judge prompt reproduced in PDF. | partial |
+| M8.03 | Switch has APROBADO, CORREGIR and ESCALAR branches; approval requires factual score at least 4. | partial |
+| M8.04 | Correction passes judge feedback to agent and has bounded attempts ending in escalation. | partial |
 | M8.05 | Escalation actually pauses with Wait/Wait for Webhook and notifies human channel. | pending |
-| M8.06 | Malformed judge JSON fails safely rather than breaking routing. | pending |
+| M8.06 | Malformed judge JSON fails safely rather than breaking routing. | partial |
 | M8.07 | Exactly five runs of architecture A and five of B record actual precision and cost. | pending |
 | M8.08 | Simple dashboard shows mean precision, common error categories, projected cost for 1000 executions and evidence-based recommendation. | pending |
 | M8.09 | One PDF contains supervisor/rubric, ten-run A/B matrix and dashboard/projection. | pending |
